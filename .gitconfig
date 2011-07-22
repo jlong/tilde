@@ -1,27 +1,34 @@
 [user]
-	name = Adam Williams
-	email = adam@thewilliams.ws
-[color]
+	name = John W. Long
+	email = me@johnwlong.com
+[color]	 
 	status = auto
 	diff = auto
 	branch = auto
 [alias]
-  aa = !git add -u && git add . && git status
+	aa = !git add -u && git add . && git status
 	st = status
+	br = branch
 	ci = commit
+	cia = commit -a
 	co = checkout
+	df = diff
+	lg = log
+	up = pullj
 [merge]
+	summary = true
 	tool = opendiff
 [core]
 	legacyheaders = false
-	excludesfile = /Users/aiwilliams/.gitignore
+	excludesfile = /Users/jlong/.gitignore
 [repack]
 	usedeltabaseoffset = true
-
-
 [apply]
-  whitespace = nowarn
+	whitespace = nowarn
+[github]
+	user = jlong
+	token = 7198ba0d2daf90ff2b17bb3929677a28
 [svn]
-	authorsfile = /Users/aiwilliams/.gitusers
+	authorsfile = /Users/jlong/.gitusers
 [push]
 	default = tracking
