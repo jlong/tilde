@@ -18,19 +18,19 @@
 	url = git://git.wincent.com/command-t.git
 [submodule ".vim/bundle/vim-git"]
 	path = .vim/bundle/vim-git
-	url = https://github.com/tpope/vim-git.git
+	url = git://github.com/tpope/vim-git.git
 [submodule ".vim/bundle/vim-markdown"]
 	path = .vim/bundle/vim-markdown
-	url = https://github.com/plasticboy/vim-markdown.git
-[submodule ".vim/bundle/vim-markdown-preview"]
-	path = .vim/bundle/vim-markdown-preview
-	url = https://github.com/robgleeson/vim-markdown-preview.git
+	url = git://github.com/plasticboy/vim-markdown.git
+[submodule ".vim/bundle/hammer"]
+	path = .vim/bundle/hammer
+	url = git://git.github.com/robgleeson/hammer.vim.git
 [submodule ".vim/bundle/vim-ruby"]
 	path = .vim/bundle/vim-ruby
-	url = https://github.com/vim-ruby/vim-ruby.git
+	url = git://github.com/vim-ruby/vim-ruby.git
 [submodule ".vim/bundle/vim-trailing-whitespace"]
 	path = .vim/bundle/vim-trailing-whitespace
-	url = https://github.com/bronson/vim-trailing-whitespace.git
+	url = git://github.com/bronson/vim-trailing-whitespace.git
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
@@ -42,7 +42,7 @@
 	url = git://github.com/tpope/vim-endwise.git
 [submodule ".vim/bundle/gundo"]
 	path = .vim/bundle/gundo
-	url = http://github.com/sjl/gundo.vim.git
+	url = git://github.com/sjl/gundo.vim.git
 [submodule ".vim/bundle/vim-javascript"]
 	path = .vim/bundle/vim-javascript
 	url = git://github.com/pangloss/vim-javascript.git
