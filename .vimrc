@@ -52,15 +52,15 @@ set statusline+=0x%-8B                                     " character value
 set statusline+=%-14(%l,%c%V%)                             " line, character
 set statusline+=%<%P                                       " file position
 
+syntax enable
+
 if has("gui_running")
+  set background=dark
+  colorscheme solarized
   set guioptions+=TlRLrb
   set guioptions-=TlRLrb
   set guifont=Monaco:h14
 endif
-
-syntax enable                                              " Of course we want syntax highlighting!
-set background=dark
-colorscheme solarized
 
 " =================
 " :help filetype
