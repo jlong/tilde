@@ -15,7 +15,20 @@ set wcm=<Tab>                                              " :h wildcharm
 set backspace=start,indent,eol                             " Allow delete across lines
 set nowrap                                                 " Don't wrap lines longer than window width
 
+set fileformats=unix,mac,dos
+
+set showmatch
+set nojoinspaces
+set scrolloff=2
+set splitbelow
+
+" Ignore case in search patterns, unless uppercase letters used
+set ignorecase smartcase
+
+" Backup Dir
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+" Swapfile Dir
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 
@@ -26,6 +39,8 @@ set hlsearch                                               " I like highlighted 
 set number                                                 " Show line numbers on the left
 
 set laststatus=2                                           " always show status line
+
+set visualbell
 
 set statusline=
 set statusline+=%-3.3n\                                    " buffer number
@@ -78,6 +93,9 @@ endif
 let mapleader = ","                                        " A way to make command mapping shorter; see <leader> throughout this
 imap ;; <Esc>
 
+" Space pages
+map <Space> <C-F>
+
 " insert line above/below
 nnoremap <D-CR> o<ESC>
 nnoremap <D-S-CR> O<ESC>
@@ -89,12 +107,27 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-H> <C-W>h
 nnoremap <C-L> <C-W>l
+" map <C-J> <C-W>j<C-W>_
+" map <C-K> <C-W>k<C-W>_
+" set winheight=15 winminheight=0
 
 " resize windows
 nmap <C-Left> <C-W><<C-W><
 nmap <C-Right> <C-W>><C-W>>
 nmap <C-Up> <C-W>+<C-W>+
 nmap <C-Down> <C-W>-<C-W>-
+
+" split explore hotkey
+map <F2> :Sexplore<CR>
+
+" ruby hotkey
+map <F5> :!ruby "%:p"<CR>
+
+" vimrc Hotkey
+map <F8> :split ~/.vimrc<CR>
+
+" html template
+nmap ,html _i<html><CR><ESC>0i<TAB><head><CR><ESC>0i<TAB><TAB><title></title><CR><ESC>0i<TAB></head><CR><ESC>0i<TAB><body><CR><ESC>0i<TAB></body><CR><ESC>0i</html><ESC>bbbbbbbbbbbbbba
 
 nnoremap <leader>b :b<space><Tab>
 
