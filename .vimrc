@@ -1,4 +1,3 @@
-
 "call pathogen#helptags() " regenerate helptags
 call pathogen#runtime_append_all_bundles()                 " Thank you, T. Pope!
 
@@ -36,7 +35,6 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " User Interface
 " ====================
 set hlsearch                                               " I like highlighted searches
-set number                                                 " Show line numbers on the left
 
 set laststatus=2                                           " always show status line
 
@@ -54,12 +52,13 @@ set statusline+=%<%P                                       " file position
 
 syntax enable
 
+set t_Co=256
+colorscheme lucius-dark
+
 if has("gui_running")
-  set background=dark
-  colorscheme solarized
   set guioptions+=TlRLrb
   set guioptions-=TlRLrb
-  set guifont=Monaco:h14
+  set guifont=Consolas:h18
 endif
 
 " =================
@@ -103,13 +102,13 @@ inoremap <D-S-CR> <ESC>O
 nnoremap <leader><space> i<space><ESC>
 
 " move between windows
-nnoremap <C-J> <C-W>j
-nnoremap <C-K> <C-W>k
+" nnoremap <C-J> <C-W>j
+map <C-J> <C-W>j<C-W>_
+" nnoremap <C-K> <C-W>k
+map <C-K> <C-W>k<C-W>_
 nnoremap <C-H> <C-W>h
 nnoremap <C-L> <C-W>l
-" map <C-J> <C-W>j<C-W>_
-" map <C-K> <C-W>k<C-W>_
-" set winheight=15 winminheight=0
+set winheight=15 winminheight=0
 
 " resize windows
 nmap <C-Left> <C-W><<C-W><
@@ -118,7 +117,14 @@ nmap <C-Up> <C-W>+<C-W>+
 nmap <C-Down> <C-W>-<C-W>-
 
 " split explore hotkey
-map <F2> :Sexplore<CR>
+nmap <F2> <leader>d<CR>
+
+" toggle line numbers
+" set number        " Show line numbers on the left
+nmap <F3> :set nonumber!<CR>
+
+" gundo - an undo tree browser
+" nnoremap <F5> :GundoToggle<CR>
 
 " ruby hotkey
 map <F5> :!ruby "%:p"<CR>
@@ -127,12 +133,9 @@ map <F5> :!ruby "%:p"<CR>
 map <F8> :split ~/.vimrc<CR>
 
 " html template
-nmap ,html _i<html><CR><ESC>0i<TAB><head><CR><ESC>0i<TAB><TAB><title></title><CR><ESC>0i<TAB></head><CR><ESC>0i<TAB><body><CR><ESC>0i<TAB></body><CR><ESC>0i</html><ESC>bbbbbbbbbbbbbba
+nmap <leader>html _i<html><CR><ESC>0i<TAB><head><CR><ESC>0i<TAB><TAB><title></title><CR><ESC>0i<TAB></head><CR><ESC>0i<TAB><body><CR><ESC>0i<TAB></body><CR><ESC>0i</html><ESC>bbbbbbbbbbbbbba
 
 nnoremap <leader>b :b<space><Tab>
-
-" gundo - an undo tree browser
-nnoremap <F5> :GundoToggle<CR>
 
 " edit vimrc
 nmap <leader>v :sp $MYVIMRC<CR><C-W>_
@@ -185,7 +188,7 @@ map <leader>S :TlistToggle<CR>
 let tlist_javascript_settings='javascript;v:globals;c:classes;f:functions;m:methods;p:properties;r:protoype'
 
 
-" ---- Searching ----
+" Searching
 set incsearch                                           " Incremental searching with /
 nnoremap <leader>A :Ack<cword><CR>
 nnoremap <leader>a :Ack<Space>
