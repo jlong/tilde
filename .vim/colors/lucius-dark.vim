@@ -223,8 +223,8 @@ hi Directory        ctermfg=151                                     cterm=none
 hi ErrorMsg         guifg=#ee0000           guibg=NONE              gui=none
 hi ErrorMsg         ctermfg=196             ctermbg=NONE            cterm=none
 " column separating vertically split windows
-hi VertSplit        guifg=#777777           guibg=#363946           gui=none
-hi VertSplit        ctermfg=242             ctermbg=237             cterm=none
+hi VertSplit        guifg=#363946           guibg=#363946           gui=none
+hi VertSplit        ctermfg=237             ctermbg=237             cterm=none
 " columns where signs are displayed (used in IDEs)
 hi SignColumn       guifg=#9fafaf           guibg=#181818           gui=none
 hi SignColumn       ctermfg=145             ctermbg=233             cterm=none
