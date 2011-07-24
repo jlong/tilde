@@ -14,7 +14,7 @@
 	co = checkout
 	df = diff
 	lg = log
-	up = pullj
+	up = pull
 [merge]
 	summary = true
 	tool = opendiff
