@@ -10,9 +10,8 @@ set shiftwidth=2
 set tabstop=2
 set smarttab
 set wildmode=list:longest                                  " Helpful tab completion
-set wcm=<Tab>                                              " :h wildcharm
+set wildcharm=<Tab>                                        " :h wildcharm
 set backspace=start,indent,eol                             " Allow delete across lines
-set nowrap                                                 " Don't wrap lines longer than window width
 
 set fileformats=unix,mac,dos
 
@@ -123,11 +122,15 @@ nmap <F2> <leader>d<CR>
 " set number        " Show line numbers on the left
 nmap <F3> :set nonumber!<CR>
 
-" gundo - an undo tree browser
-" nnoremap <F5> :GundoToggle<CR>
+" toggle wordwrap
+set nowrap                                                 " Don't wrap lines longer than window width
+nmap <F4> :set nowrap!<CR>
 
 " ruby hotkey
 map <F5> :!ruby "%:p"<CR>
+
+" gundo - an undo tree browser
+" nnoremap <F6> :GundoToggle<CR>
 
 " vimrc Hotkey
 map <F8> :split ~/.vimrc<CR>
