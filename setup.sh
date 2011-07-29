@@ -32,6 +32,13 @@ ln -sfv $PWD/.gvimrc $HOME/.gvimrc
 git submodule update --init
 
 #######################
+#  IRB
+#######################
+
+ln -sfv $PWD/.irbrc $HOME/.irbrc
+
+
+#######################
 #  Bash Profile
 #######################
 
