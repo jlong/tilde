@@ -1,16 +1,25 @@
 #!/bin/bash
 
+#######################
+echo "Lib"
+#######################
+
 ln -sv $PWD/lib/ $HOME/lib
 
+echo ""
+
 
 #######################
-#  ACK
+echo "ACK"
 #######################
+
 ln -sfv $PWD/.ackrc $HOME/.ackrc
 
+echo ""
+
 
 #######################
-#  GIT
+echo "GIT"
 #######################
 
 # A couple of things for Git that we want to be user global. Note that we
@@ -20,9 +29,11 @@ ln -sfv $PWD/.gitconfig $HOME/.gitconfig
 ln -sfv $PWD/.gitignore $HOME/.gitignore
 ln -sfv $PWD/.gitusers $HOME/.gitusers
 
+echo ""
+
 
 #######################
-#  VIM
+echo "VIM"
 #######################
 ln -sv $PWD/.vim/ $HOME/.vim
 ln -sfv $PWD/.vimrc $HOME/.vimrc
@@ -31,17 +42,31 @@ ln -sfv $PWD/.gvimrc $HOME/.gvimrc
 # Pull in our .vim/bundles
 git submodule update --init
 
+echo ""
+
+
 #######################
-#  IRB
+echo "IRB"
 #######################
 
 ln -sfv $PWD/.irbrc $HOME/.irbrc
 
+echo ""
+
 
 #######################
-#  Bash Profile
+echo "Bash Profile"
 #######################
 
 ln -sfv $PWD/.aliases $HOME/.aliases
 ln -sfv $PWD/.projects $HOME/.projects
 ln -sfv $PWD/.git-completion $HOME/.git-completion
+
+echo ""
+echo "Files linked. Add the following lines to your .bash_profile:"
+echo ""
+echo "  source ~/.aliases"
+echo "  source ~/.git-completion"
+echo "  source ~/.projects"
+echo "  complete -C path/to/script -o default rake"
+echo ""
