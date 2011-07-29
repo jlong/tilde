@@ -36,3 +36,4 @@ git submodule update --init
 #######################
 
 ln -sfv $PWD/.aliases $HOME/.aliases
+ln -sfv $PWD/.projects $HOME/.projects

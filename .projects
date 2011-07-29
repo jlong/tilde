@@ -1,0 +1,63 @@
+# Changes into the project's directory. All of my projects are stored in
+# ~/Workspaces/. Some of them are still on subversion, thus the need for all
+# of the checks on "trunk". They often have one or more of the following
+# subdirectories: application, prototype, mockups, artwork, or website.
+# The command takes to parameters: the name of the project and the sub-
+# directory. The application subdirectory is assumed if nothing is passed.
+project ()
+{
+  if [[ -e ~/Workspaces/$1/trunk ]]
+  then
+    if [ $2 ]
+    then
+      cd ~/Workspaces/$1/trunk/$2
+    else
+      if [[ -e ~/Workspaces/$1/trunk/$1 ]]
+      then
+        cd ~/Workspaces/$1/trunk/$1
+      else
+        cd ~/Workspaces/$1/trunk
+      fi
+    fi
+  else
+    if [ $2 ]
+    then
+      if [[ -e ~/Workspaces/$1/assets/$2 ]]
+      then
+        cd ~/Workspaces/$1/assets/$2
+      else
+        cd ~/Workspaces/$1/$2
+      fi
+    else
+      if [[ -e ~/Workspaces/$1/application ]]
+      then
+        cd ~/Workspaces/$1/application
+      else
+        cd ~/Workspaces/$1
+      fi 
+    fi
+  fi
+}
+alias pr=project
+alias ws="cd ~/Workspaces; ls"
+
+# Wiseheart Design
+wd ()
+{
+  project wiseheartdesign $1
+}
+complete -W "application prototype mockups artwork website portfolio" wd
+
+# MemberHub
+mh ()
+{
+  project memberhub $1
+}
+complete -W "application prototype mockups artwork wireframes website upload" mh
+
+# Radiant
+ra ()
+{
+  project radiant $1
+}
+complete -W "application instance registry prototype mockups artwork website" ra
