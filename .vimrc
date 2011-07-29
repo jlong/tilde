@@ -1,4 +1,4 @@
-"call pathogen#helptags() " regenerate helptags
+call pathogen#helptags() " regenerate helptags
 call pathogen#runtime_append_all_bundles()                 " Thank you, T. Pope!
 
 set nocompatible                                           " We aren't interested in backward compatability with vi, set before all other
