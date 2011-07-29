@@ -1,0 +1,37 @@
+# Console
+alias profile="vi ~/.bash_profile"
+alias ls="ls -p -G -h"
+alias mkpath="mkdir -p"
+alias ss="script/server"
+
+# Desktop Programs
+alias fireworks="open -a '/Applications/Adobe Fireworks CS5/Adobe Fireworks CS5.app'"
+alias photoshop="open -a '/Applications/Adobe Photoshop CS5/Adobe Photoshop CS5.app'"
+alias illustrator="open -a '/Applications/Adobe Illustrator CS5/Adobe Illustrator CS5.app'"
+alias preview="open -a '/Applications/Preview.app'"
+alias xcode="open -a '/Developer/Applications/Xcode.app'"
+alias coda="open -a '/Applications/Coda.app'"
+alias mate="mvim"
+alias tm="mate"
+alias macvim="mvim"
+alias vi="mvim"
+
+# Ruby
+alias stdlib="mate /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/"
+alias gems="mate /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/"
+
+# Git
+alias gsm="git submodule init && git submodule update"
+
+# SSH
+alias sshrecursive1="ssh -p 42832 173.45.235.36"
+
+# WGET
+alias wget="curl -O"
+
+# Bundler
+alias b="bundle"
+alias bi="b install --path vendor"
+alias bu="b update"
+alias be="b exec"
+alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"

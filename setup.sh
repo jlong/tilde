@@ -30,3 +30,9 @@ ln -sfv $PWD/.gvimrc $HOME/.gvimrc
 
 # Pull in our .vim/bundles
 git submodule update --init
+
+#######################
+#  Bash Profile
+#######################
+
+ln -sfv $PWD/.aliases $HOME/.aliases
