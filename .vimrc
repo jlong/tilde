@@ -20,6 +20,9 @@ set nojoinspaces
 set scrolloff=2
 set splitbelow
 
+" :Man plugin
+runtime ftplugin/man.vim
+
 " Ignore case in search patterns, unless uppercase letters used
 set ignorecase smartcase
 
@@ -123,7 +126,7 @@ nmap <F2> <leader>d<CR>
 nmap <F3> :set nonumber!<CR>
 
 " toggle wordwrap
-set nowrap                                                 " Don't wrap lines longer than window width
+set nowrap          " Don't wrap lines longer than window width
 nmap <F4> :set nowrap!<CR>
 
 " ruby hotkey
