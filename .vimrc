@@ -60,7 +60,7 @@ colorscheme lucius-dark
 if has("gui_running")
   set guioptions+=TlRLrb
   set guioptions-=TlRLrb
-  set guifont=Consolas:h18
+  set guifont=Monaco:h15
 endif
 
 " =================
@@ -97,16 +97,8 @@ imap ;; <Esc>
 " Space pages
 map <Space> <C-F>
 
-" insert line above/below
-nnoremap <D-CR> o<ESC>
-nnoremap <D-S-CR> O<ESC>
-inoremap <D-S-CR> <ESC>O
-nnoremap <leader><space> i<space><ESC>
-
 " move between windows
-" nnoremap <C-J> <C-W>j
 map <C-J> <C-W>j<C-W>_
-" nnoremap <C-K> <C-W>k
 map <C-K> <C-W>k<C-W>_
 nnoremap <C-H> <C-W>h
 nnoremap <C-L> <C-W>l
@@ -140,6 +132,12 @@ map <F8> :split ~/.vimrc<CR>
 
 " html template
 nmap <leader>html _i<html><CR><ESC>0i<TAB><head><CR><ESC>0i<TAB><TAB><title></title><CR><ESC>0i<TAB></head><CR><ESC>0i<TAB><body><CR><ESC>0i<TAB></body><CR><ESC>0i</html><ESC>bbbbbbbbbbbbbba
+
+" Command-Return for fullscreen
+"if has("gui_macvim")
+"  set fuoptions=maxhorz,maxvert " Fullscreen takes up entire screen
+"  macmenu Window.Toggle\ Full\ Screen\ Mode key=<D-CR>
+"endif
 
 nnoremap <leader>b :b<space><Tab>
 
@@ -181,7 +179,7 @@ nnoremap <leader>h :FixWhitespace<CR>
 " ==================
 " Tags
 "   See http://sites.google.com/site/daveparillo/software-development/vim/ctags
-"   
+"
 "   :!ctags -R  // recursively generate tags for every known file type
 " ==================
 " TODO Learn to use tags beyond the TlistToggle...
@@ -196,6 +194,8 @@ let tlist_javascript_settings='javascript;v:globals;c:classes;f:functions;m:meth
 
 " Searching
 set incsearch                                           " Incremental searching with /
+" Command-Shift-F for Ack
+nnoremap <D-F> :Ack<space>
 nnoremap <leader>A :Ack<cword><CR>
 nnoremap <leader>a :Ack<Space>
 nnoremap <leader>rw :Ack<space>--type=ruby<space><cword><CR>
