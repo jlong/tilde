@@ -14,7 +14,7 @@ alias coda="open -a '/Applications/Coda.app'"
 alias mate="mvim"
 alias tm="mate"
 alias macvim="mvim"
-alias vi="mvim"
+alias vim="mvim"
 
 # Ruby
 alias stdlib="mate /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/"
