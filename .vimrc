@@ -36,36 +36,40 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " ====================
 " User Interface
 " ====================
+
 set hlsearch                                               " I like highlighted searches
-
-set laststatus=2                                           " always show status line
-
 set visualbell
+set cursorline                                             " highlight the current line
 
+" Status line
+set laststatus=2                                           " always show status line
 set statusline=
 set statusline+=%-3.3n\                                    " buffer number
-set statusline+=%f\                                        " filename
-set statusline+=%h%m%r%w                                   " status flags
-set statusline+=\[%{strlen(&ft)?&ft:'none'}]               " file type
+set statusline+=%f%{&modified?'+':''}\                     " filename (+ modified)
 set statusline+=%=                                         " right align remainder
-set statusline+=0x%-8B                                     " character value
+set statusline+=%h%r%w\                                    " status flags
+set statusline+=\[%{strlen(&ft)?&ft:'none'}]\              " file type
+"set statusline+=0x%-8B                                    " character value
 set statusline+=%-14(%l,%c%V%)                             " line, character
 set statusline+=%<%P                                       " file position
 
+" Syntax highlighting
 syntax enable
-
 set t_Co=256
 colorscheme lucius-dark
 
+" GUI Options
 if has("gui_running")
   set guioptions+=TlRLrb
   set guioptions-=TlRLrb
   set guifont=Monaco:h15
 endif
 
+
 " =================
 " :help filetype
 " =================
+
 filetype plugin indent on
 autocmd BufRead,BufNewFile Capfile set filetype=ruby       " recognize Capfile
 autocmd BufRead,BufNewFile Gemfile set filetype=ruby       " recognize Gemfile
@@ -75,6 +79,7 @@ autocmd BufRead,BufNewFile *.jst set filetype=html
 " ==================
 " Buffers
 " ==================
+
 set hidden                                                 " Leave buffers even when they're changed
 
 autocmd BufReadPost *                                      " Restore cursor position
@@ -87,6 +92,7 @@ if v:version >= 703                                        " Persistent UNDO, on
   set undodir=~/.vim/.undo
 endif
 
+set clipboard+=unnamed                                     " Cause yank, p, etc to work with the System clipboard (requires +clipboard)
 
 " ==================
 " Mappings
@@ -119,6 +125,7 @@ nmap <F3> :set nonumber!<CR>
 
 " toggle wordwrap
 set nowrap          " Don't wrap lines longer than window width
+set linebreak       " Wrap on words
 nmap <F4> :set nowrap!<CR>
 
 " ruby hotkey
@@ -195,7 +202,7 @@ let tlist_javascript_settings='javascript;v:globals;c:classes;f:functions;m:meth
 " Searching
 set incsearch                                           " Incremental searching with /
 " Command-Shift-F for Ack
-nnoremap <D-F> :Ack<space>
+nnoremap <D-F> :Ack<space>""<Left>
 nnoremap <leader>A :Ack<cword><CR>
 nnoremap <leader>a :Ack<Space>
 nnoremap <leader>rw :Ack<space>--type=ruby<space><cword><CR>
