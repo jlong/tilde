@@ -1,7 +1,7 @@
 [user]
 	name = John W. Long
 	email = me@johnwlong.com
-[color]	 
+[color]
 	status = auto
 	diff = auto
 	branch = auto
@@ -19,6 +19,7 @@
 	summary = true
 	tool = opendiff
 [core]
+  editor = vim --nofork
 	legacyheaders = false
 	excludesfile = /Users/jlong/.gitignore
 [repack]
