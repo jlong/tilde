@@ -35,7 +35,7 @@ echo ""
 #######################
 echo "VIM"
 #######################
-ln -sv $PWD/.vim/ $HOME/.vim
+ln -sv $PWD/vim/ $HOME/.vim
 ln -sfv $PWD/.vimrc $HOME/.vimrc
 ln -sfv $PWD/.gvimrc $HOME/.gvimrc
 
