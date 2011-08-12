@@ -47,10 +47,11 @@ set laststatus=2                                           " always show status 
 set statusline=
 set statusline+=%-3.3n\                                    " buffer number
 set statusline+=%f%{&modified?'+':''}\                     " filename (+ modified)
-set statusline+=%=                                         " right align remainder
 set statusline+=%h%r%w\                                    " status flags
-set statusline+=\[%{strlen(&ft)?&ft:'none'}]\              " file type
+set statusline+=%=                                         " right align remainder
 "set statusline+=0x%-8B                                    " character value
+set statusline+=\[%{strlen(&ft)?&ft:'none'}]\ \ \          " file type
+set statusline+=%-20{fugitive#statusline()}\ 
 set statusline+=%-14(%l,%c%V%)                             " line, character
 set statusline+=%<%P                                       " file position
 
