@@ -59,19 +59,14 @@ set statusline+=%<%P                                       " file position
 syntax enable
 set t_Co=256
 colorscheme lucius-dark
-highlight ExtraWhitespace ctermbg=bg guibg=bg              " Hide extra whitespace
+autocmd BufRead * highlight ExtraWhitespace ctermbg=bg guibg=bg " Hide extra whitespace
 
 " GUI Options
 if has("gui_running")
   set guioptions+=TlRLrb
   set guioptions-=TlRLrb
-  set guifont=Monaco:h15
+  set guifont=Monaco:h16
 endif
-
-
-" =================
-" :help filetype
-" =================
 
 filetype plugin indent on
 autocmd BufRead,BufNewFile Capfile set filetype=ruby       " recognize Capfile
