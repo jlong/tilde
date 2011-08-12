@@ -28,7 +28,6 @@
 	whitespace = nowarn
 [github]
 	user = jlong
-	token = 7198ba0d2daf90ff2b17bb3929677a28
 [svn]
 	authorsfile = /Users/jlong/.gitusers
 [push]
