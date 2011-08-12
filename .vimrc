@@ -57,6 +57,7 @@ set statusline+=%<%P                                       " file position
 syntax enable
 set t_Co=256
 colorscheme lucius-dark
+highlight ExtraWhitespace ctermbg=bg guibg=bg              " Hide extra whitespace
 
 " GUI Options
 if has("gui_running")
@@ -181,6 +182,7 @@ nnoremap <leader><leader>j :Rjavascript<space>
 nnoremap <leader><leader>t :Rtask<space>
 nnoremap <leader><leader>r :Rspec<space>
 
+" Whitespace
 nnoremap <leader>h :FixWhitespace<CR>
 
 " ==================
