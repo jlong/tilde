@@ -1,5 +1,6 @@
-call pathogen#helptags() " regenerate helptags
-call pathogen#runtime_append_all_bundles()                 " Thank you, T. Pope!
+" Vim Bundles
+call pathogen#infect()                                     " Thank you, T. Pope!
+call pathogen#helptags()                                   " Helptags for all bundles
 
 set nocompatible                                           " We aren't interested in backward compatability with vi, set before all other
 set history=1000                                           " Lots of command line history
