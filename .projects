@@ -61,3 +61,10 @@ ra ()
   project radiant $1
 }
 complete -W "application instance registry prototype mockups artwork website" ra
+
+# UserVoice
+uv ()
+{
+  project uservoice $1
+}
+complete -W "application prototype mockups artwork wireframes website" uv
