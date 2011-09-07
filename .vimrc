@@ -51,7 +51,7 @@ set statusline+=%h%r%w\                                    " status flags
 set statusline+=%=                                         " right align remainder
 "set statusline+=0x%-8B                                    " character value
 set statusline+=\[%{strlen(&ft)?&ft:'none'}]\ \ \          " file type
-set statusline+=%-20{fugitive#statusline()}\ 
+"set statusline+=%-20{fugitive#statusline()}\ 
 set statusline+=%-14(%l,%c%V%)                             " line, character
 set statusline+=%<%P                                       " file position
 
@@ -65,14 +65,17 @@ autocmd BufRead * highlight ExtraWhitespace ctermbg=bg guibg=bg " Hide extra whi
 if has("gui_running")
   set guioptions+=TlRLrb
   set guioptions-=TlRLrb
-  set guifont=Monaco:h16
+  set guifont=Monaco:h15
 endif
 
+" File types
 filetype plugin indent on
 autocmd BufRead,BufNewFile Capfile set filetype=ruby       " recognize Capfile
 autocmd BufRead,BufNewFile Gemfile set filetype=ruby       " recognize Gemfile
 autocmd BufRead,BufNewFile *.jst set filetype=html
 
+" Expand all folds
+autocmd BufRead * call feedkeys("zR")
 
 " ==================
 " Buffers
