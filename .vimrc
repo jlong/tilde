@@ -77,6 +77,19 @@ autocmd BufRead,BufNewFile *.jst set filetype=html
 " Expand all folds
 autocmd BufRead * call feedkeys("zR")
 
+" Make pasting work without indentation in terminal
+if &term =~ "xterm.*"
+    let &t_ti = &t_ti . "\e[?2004h"
+    let &t_te = "\e[?2004l" . &t_te
+    function XTermPasteBegin(ret)
+        set pastetoggle=<Esc>[201~
+        set paste
+        return a:ret
+    endfunction
+    map <expr> <Esc>[200~ XTermPasteBegin("i")
+    imap <expr> <Esc>[200~ XTermPasteBegin("")
+endif
+
 " ==================
 " Buffers
 " ==================
@@ -104,18 +117,24 @@ imap ;; <Esc>
 " Space pages
 map <Space> <C-F>
 
-" move between windows
-map <C-J> <C-W>j<C-W>_
-map <C-K> <C-W>k<C-W>_
-nnoremap <C-H> <C-W>h
-nnoremap <C-L> <C-W>l
 set winheight=15 winminheight=0
 
+" move between windows
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-H> <C-W>h
+nnoremap <C-L> <C-W>l
+
+" move and maximize
+nnoremap <D-j> <C-W>j<C-W>_
+nnoremap <D-k> <C-W>k<C-W>_
+
 " resize windows
-nmap <C-Left> <C-W><<C-W><
-nmap <C-Right> <C-W>><C-W>>
-nmap <C-Up> <C-W>+<C-W>+
-nmap <C-Down> <C-W>-<C-W>-
+nmap <S-Left> <C-W><<C-W><
+nmap <S-Right> <C-W>><C-W>>
+nmap <S-Up> <C-W>+<C-W>+
+nmap <S-Down> <C-W>-<C-W>-
+nmap <C-_> <C-W>_
 
 " split explore hotkey
 nmap <F2> <leader>d<CR>
