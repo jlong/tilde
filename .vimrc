@@ -158,7 +158,10 @@ map <F5> :!ruby "%:p"<CR>
 " nnoremap <F6> :GundoToggle<CR>
 
 " vimrc Hotkey
-map <F8> :split ~/.vimrc<CR>
+map <F6> :split ~/.vimrc<CR>
+
+" Tagbar
+map <F8> :TagbarOpenAutoClose<CR>
 
 " html template
 nmap <leader>html _i<html><CR><ESC>0i<TAB><head><CR><ESC>0i<TAB><TAB><title></title><CR><ESC>0i<TAB></head><CR><ESC>0i<TAB><body><CR><ESC>0i<TAB></body><CR><ESC>0i</html><ESC>bbbbbbbbbbbbbba
