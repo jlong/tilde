@@ -4,10 +4,14 @@ alias ls="ls -p -G -h"
 alias mkpath="mkdir -p"
 alias ss="script/server"
 
+# PostgreSQL
+alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+
 # Desktop Programs
-alias fireworks="open -a '/Applications/Adobe Fireworks CS5/Adobe Fireworks CS5.app'"
-alias photoshop="open -a '/Applications/Adobe Photoshop CS5/Adobe Photoshop CS5.app'"
-alias illustrator="open -a '/Applications/Adobe Illustrator CS5/Adobe Illustrator CS5.app'"
+alias fireworks="open -a '/Applications/Adobe Fireworks CS5.1/Adobe Fireworks CS5.1.app'"
+alias photoshop="open -a '/Applications/Adobe Photoshop CS5.1/Adobe Photoshop CS5.1.app'"
+alias illustrator="open -a '/Applications/Adobe Illustrator CS5.1/Adobe Illustrator CS5.1.app'"
 alias preview="open -a '/Applications/Preview.app'"
 alias xcode="open -a '/Developer/Applications/Xcode.app'"
 alias coda="open -a '/Applications/Coda.app'"
@@ -22,6 +26,7 @@ alias gems="mate /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/
 
 # Git
 alias gsm="git submodule init && git submodule update"
+alias git=hub
 
 # SSH
 alias sshrecursive1="ssh -p 42832 173.45.235.36"
@@ -35,3 +40,7 @@ alias bi="b install --path vendor"
 alias bu="b update"
 alias be="b exec"
 alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
+
+# UserVoice
+alias vapp="cd ~/Workspaces/uservoice/application && vim . && cd -"
+

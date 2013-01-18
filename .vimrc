@@ -65,7 +65,9 @@ autocmd BufRead * highlight ExtraWhitespace ctermbg=bg guibg=bg " Hide extra whi
 if has("gui_running")
   set guioptions+=TlRLrb
   set guioptions-=TlRLrb
-  set guifont=Monaco:h15
+  set guifont=Monaco:h14
+  set noantialias
+  set transparency=8
 endif
 
 " File types
@@ -114,8 +116,8 @@ set clipboard+=unnamed                                     " Cause yank, p, etc 
 let mapleader = ","                                        " A way to make command mapping shorter; see <leader> throughout this
 imap ;; <Esc>
 
-" Space pages
-map <Space> <C-F>
+" Paste linewise after with indent
+nnoremap <leader>p :put *<cr>`[v`]=
 
 set winheight=15 winminheight=0
 
@@ -134,6 +136,7 @@ nmap <S-Left> <C-W><<C-W><
 nmap <S-Right> <C-W>><C-W>>
 nmap <S-Up> <C-W>+<C-W>+
 nmap <S-Down> <C-W>-<C-W>-
+nmap <C--> <C-W>_
 nmap <C-_> <C-W>_
 
 " split explore hotkey
@@ -201,9 +204,6 @@ nnoremap <leader><leader>j :Rjavascript<space>
 nnoremap <leader><leader>t :Rtask<space>
 nnoremap <leader><leader>r :Rspec<space>
 
-" Whitespace
-nnoremap <leader>h :FixWhitespace<CR>
-
 " ==================
 " Tags
 "   See http://sites.google.com/site/daveparillo/software-development/vim/ctags
@@ -222,10 +222,11 @@ let tlist_javascript_settings='javascript;v:globals;c:classes;f:functions;m:meth
 
 " Searching
 set incsearch                                           " Incremental searching with /
+
 " Command-Shift-F for Ack
 nnoremap <D-F> :Ack<space>""<Left>
+nnoremap <leader>a :Ack<space>""<Left>
 nnoremap <leader>A :Ack<cword><CR>
-nnoremap <leader>a :Ack<Space>
 nnoremap <leader>rw :Ack<space>--type=ruby<space><cword><CR>
 vmap <leader>A "ry:Ack<space>"<C-r>r"<CR>
 
@@ -236,6 +237,10 @@ vmap <leader>r "ry:%s/<C-r>r/
 " Show trailing whitespace with ,s
 set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
+
+" Space pages
+map <Space> <C-d>
+map <S-Space> <C-u>
 
 " Scroll the viewport faster
 nnoremap <C-e> 3<C-e>

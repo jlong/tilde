@@ -2,6 +2,7 @@
 	name = John W. Long
 	email = me@johnwlong.com
 [color]
+  ui = auto
 	status = auto
 	diff = auto
 	branch = auto
