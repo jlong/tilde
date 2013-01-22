@@ -3,6 +3,7 @@ alias profile="vi ~/.bash_profile"
 alias ls="ls -p -G -h"
 alias mkpath="mkdir -p"
 alias ss="script/server"
+alias flushdns="dscacheutil -flushcache"
 
 # PostgreSQL
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
