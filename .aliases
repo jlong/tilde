@@ -10,9 +10,9 @@ alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/serv
 alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 
 # Desktop Programs
-alias fireworks="open -a '/Applications/Adobe Fireworks CS5.1/Adobe Fireworks CS5.1.app'"
-alias photoshop="open -a '/Applications/Adobe Photoshop CS5.1/Adobe Photoshop CS5.1.app'"
-alias illustrator="open -a '/Applications/Adobe Illustrator CS5.1/Adobe Illustrator CS5.1.app'"
+alias fireworks="open -a '/Applications/Adobe Fireworks CS6/Adobe Fireworks CS6.app'"
+alias photoshop="open -a '/Applications/Adobe Photoshop CS6/Adobe Photoshop CS6.app'"
+alias illustrator="open -a '/Applications/Adobe Illustrator CS6/Adobe Illustrator CS6.app'"
 alias preview="open -a '/Applications/Preview.app'"
 alias xcode="open -a '/Developer/Applications/Xcode.app'"
 alias coda="open -a '/Applications/Coda.app'"
