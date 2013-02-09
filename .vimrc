@@ -178,12 +178,12 @@ nnoremap <leader>b :b<space><Tab>
 nmap <leader>v :sp $MYVIMRC<CR><C-W>_
 nmap <leader>V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR><leader>d<leader>d<C-L>
 
-" command-t
-silent! nmap <unique> <silent> <Leader>f :CommandT<CR>
-nnoremap <leader>F :CommandTFlush<CR>:CommandT<CR>
-set wildignore+=public/assets/**,build/**,vendor/plugins/**,vendor/linked_gems/**,vendor/gems/**,vendor/rails/**,vendor/ruby/**,vendor/cache/**,Libraries/**,coverage/**
-let g:CommandTMaxHeight=20
-let g:CommandTMatchWindowAtTop=0
+"" command-t
+"silent! nmap <unique> <silent> <Leader>f :CommandT<CR>
+"nnoremap <leader>F :CommandTFlush<CR>:CommandT<CR>
+"set wildignore+=public/assets/**,build/**,vendor/plugins/**,vendor/linked_gems/**,vendor/gems/**,vendor/rails/**,vendor/ruby/**,vendor/cache/**,Libraries/**,coverage/**
+"let g:CommandTMaxHeight=20
+"let g:CommandTMatchWindowAtTop=0
 
 " NERDtree
 let NERDTreeWinSize=31
