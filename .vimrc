@@ -166,6 +166,9 @@ map <F8> :TagbarOpenAutoClose<CR>
 " html template
 nmap <leader>html _i<html><CR><ESC>0i<TAB><head><CR><ESC>0i<TAB><TAB><title></title><CR><ESC>0i<TAB></head><CR><ESC>0i<TAB><body><CR><ESC>0i<TAB></body><CR><ESC>0i</html><ESC>bbbbbbbbbbbbbba
 
+" Copy to selection to clipboard
+vmap <leader> !pbcopy && pbpaste<CR>
+
 " Command-Return for fullscreen
 "if has("gui_macvim")
 "  set fuoptions=maxhorz,maxvert " Fullscreen takes up entire screen
@@ -178,12 +181,11 @@ nnoremap <leader>b :b<space><Tab>
 nmap <leader>v :sp $MYVIMRC<CR><C-W>_
 nmap <leader>V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR><leader>d<leader>d<C-L>
 
-"" command-t
-"silent! nmap <unique> <silent> <Leader>f :CommandT<CR>
-"nnoremap <leader>F :CommandTFlush<CR>:CommandT<CR>
-"set wildignore+=public/assets/**,build/**,vendor/plugins/**,vendor/linked_gems/**,vendor/gems/**,vendor/rails/**,vendor/ruby/**,vendor/cache/**,Libraries/**,coverage/**
-"let g:CommandTMaxHeight=20
-"let g:CommandTMatchWindowAtTop=0
+"" command-t -> ctrl-p
+silent! nmap <unique> <silent> <Leader>f :CtrlP<CR>
+nnoremap <leader>F :CtrlPClearAllCaches<CR>:CtrlP<CR>
+set wildignore+=public/assets/**,build/**,vendor/plugins/**,vendor/linked_gems/**,vendor/gems/**,vendor/rails/**,vendor/ruby/**,vendor/cache/**,Libraries/**,coverage/**
+let g:ctrlp_max_height=20
 
 " NERDtree
 let NERDTreeWinSize=31
