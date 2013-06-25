@@ -73,3 +73,9 @@
 [submodule "vim/bundle/gitignore"]
 	path = vim/bundle/gitignore
 	url = https://github.com/vim-scripts/gitignore.git
+[submodule "vim/bundle/vim-rvm"]
+	path = vim/bundle/vim-rvm
+	url = git://github.com/tpope/vim-rvm.git
+[submodule "vim/bundle/vim-gitgutter"]
+	path = vim/bundle/vim-gitgutter
+	url = git@github.com:airblade/vim-gitgutter.git

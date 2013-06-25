@@ -38,6 +38,7 @@ echo "VIM"
 ln -sv $PWD/vim/ $HOME/.vim
 ln -sfv $PWD/.vimrc $HOME/.vimrc
 ln -sfv $PWD/.gvimrc $HOME/.gvimrc
+mkdir $PWD/.vim-tmp
 
 # Pull in our .vim/bundles
 git submodule update --init

@@ -31,7 +31,7 @@ set ignorecase smartcase
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 " Swapfile Dir
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp//,~/.tmp//,~/tmp//,/var/tmp//,/tmp//
 
 
 " ====================

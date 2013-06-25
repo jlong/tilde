@@ -11,8 +11,8 @@ alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 
 # Desktop Programs
 alias fireworks="open -a '/Applications/Adobe Fireworks CS6/Adobe Fireworks CS6.app'"
-alias photoshop="open -a '/Applications/Adobe Photoshop CS6/Adobe Photoshop CS6.app'"
-alias illustrator="open -a '/Applications/Adobe Illustrator CS6/Adobe Illustrator CS6.app'"
+alias photoshop="open -a '/Applications/Adobe Photoshop CC/Adobe Photoshop CC.app'"
+alias illustrator="open -a '/Applications/Adobe Illustrator CC/Adobe Illustrator CC.app'"
 alias preview="open -a '/Applications/Preview.app'"
 alias xcode="open -a '/Developer/Applications/Xcode.app'"
 alias coda="open -a '/Applications/Coda.app'"
@@ -28,6 +28,7 @@ alias gems="mate /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/
 # Git
 alias gsm="git submodule init && git submodule update"
 alias git=hub
+alias changelog="git log --no-merges --date=short --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd)%Creset'"
 
 # SSH
 alias sshrecursive1="ssh -p 42832 173.45.235.36"
@@ -41,7 +42,3 @@ alias bi="b install --path vendor"
 alias bu="b update"
 alias be="b exec"
 alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
-
-# UserVoice
-alias vapp="cd ~/Workspaces/uservoice/application && vim . && cd -"
-
