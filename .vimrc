@@ -33,6 +33,9 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " Swapfile Dir
 set directory=~/.vim-tmp//,~/.tmp//,~/tmp//,/var/tmp//,/tmp//
 
+" Clear the backup dir
+command ClearBackups execute "!rm -rf ~/.vim-tmp/*"
+
 
 " ====================
 " User Interface
