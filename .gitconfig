@@ -17,6 +17,7 @@
 	lg = log
 	up = pull
   changelog = log --no-merges --date=short --pretty=format:'%Cgreen%cd%Creset %Cred%h%Creset -%C(yellow)%d%Creset %cN: %s'
+  mine = log --author=john
 [merge]
 	summary = true
 	tool = opendiff

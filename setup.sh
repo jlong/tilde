@@ -54,6 +54,15 @@ ln -sfv $PWD/.irbrc $HOME/.irbrc
 
 echo ""
 
+#######################
+echo "JSHint"
+#######################
+
+npm install -g jshint
+ln -sfv $PWD/.jshintrc $HOME/.jshintrc
+
+echo ""
+
 
 #######################
 echo "Bash Profile"
@@ -69,5 +78,5 @@ echo ""
 echo "  source ~/.aliases"
 echo "  source ~/.git-completion"
 echo "  source ~/.projects"
-echo "  complete -C path/to/script -o default rake"
+echo "  complete -C path/to/tilde/lib/rake-complete.rb -o default rake"
 echo ""

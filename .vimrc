@@ -46,6 +46,8 @@ set visualbell
 set cursorline                                             " highlight the current line
 
 " Status line
+let g:airline_powerline_fonts=1                            " use airline with powerline fonts
+let g:airline_theme='badwolf'                                " airline theme
 set laststatus=2                                           " always show status line
 set statusline=
 set statusline+=%-3.3n\                                    " buffer number
