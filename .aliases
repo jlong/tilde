@@ -16,10 +16,8 @@ alias illustrator="open -a '/Applications/Adobe Illustrator CC/Adobe Illustrator
 alias preview="open -a '/Applications/Preview.app'"
 alias xcode="open -a '/Developer/Applications/Xcode.app'"
 alias coda="open -a '/Applications/Coda.app'"
-alias mate="mvim"
 alias tm="mate"
-alias macvim="mvim"
-alias vim="mvim"
+alias ios-simulator="open -a '/Applications/Xcode.app/Contents/Applications/iPhone Simulator.app'" 
 
 # Ruby
 alias stdlib="mate /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/"

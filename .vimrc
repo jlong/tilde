@@ -186,14 +186,20 @@ nnoremap <leader>b :b<space><Tab>
 nmap <leader>v :sp $MYVIMRC<CR><C-W>_
 nmap <leader>V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR><leader>d<leader>d<C-L>
 
-"" command-t -> ctrl-p
+" Ctrl-p
 silent! nmap <unique> <silent> <Leader>f :CtrlP<CR>
 nnoremap <leader>F :CtrlPClearAllCaches<CR>:CtrlP<CR>
 set wildignore+=public/assets/**,build/**,vendor/plugins/**,vendor/linked_gems/**,vendor/gems/**,vendor/rails/**,vendor/ruby/**,vendor/cache/**,Libraries/**,coverage/**
 let g:ctrlp_max_height=20
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v(\.git|\.yardoc|log|tmp)$',
+  \ 'file': '\v\.(so|dat|DS_Store|png|gif|jpg|jpeg)$'
+  \ }
 
 " NERDtree
 let NERDTreeWinSize=31
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
 map <leader>nt :NERDTree<space>
 map <leader>nb :NERDTreeFromBookmark<space>
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
