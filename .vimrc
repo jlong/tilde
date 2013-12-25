@@ -156,14 +156,16 @@ set nowrap          " Don't wrap lines longer than window width
 set linebreak       " Wrap on words
 nmap <F4> :set nowrap!<CR>
 
-" ruby hotkey
-map <F5> :!ruby "%:p"<CR>
+" Goyo
+let g:goyo_margin_top=1
+let g:goyo_margin_bottom=1
+map <F5> :Goyo<CR>
 
 " gundo - an undo tree browser
 " nnoremap <F6> :GundoToggle<CR>
 
 " vimrc Hotkey
-map <F6> :split ~/.vimrc<CR>
+map <F6> :vsplit<CR><C-L>:e ~/.vimrc<CR>
 
 " Tagbar
 map <F8> :TagbarOpenAutoClose<CR>
