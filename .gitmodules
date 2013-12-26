@@ -85,3 +85,6 @@
 [submodule "vim/bundle/goyo"]
 	path = vim/bundle/goyo
 	url = git@github.com:junegunn/goyo.vim.git
+[submodule "vim/bundle/vim-seek"]
+	path = vim/bundle/vim-seek
+	url = https://github.com/goldfeld/vim-seek
