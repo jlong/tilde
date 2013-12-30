@@ -66,6 +66,13 @@ set t_Co=256
 colorscheme lucius-dark
 autocmd BufRead * highlight ExtraWhitespace ctermbg=bg guibg=bg " Hide extra whitespace
 
+hi TabLine      ctermfg=Gray  ctermbg=Black     cterm=NONE
+hi TabLineFill  ctermfg=Gray  ctermbg=Black     cterm=NONE
+hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
+
+" Mouse
+set mouse=a
+
 " GUI Options
 if has("gui_running")
   set guioptions+=TlRLrb
@@ -165,7 +172,7 @@ map <F5> :Goyo<CR>
 " nnoremap <F6> :GundoToggle<CR>
 
 " vimrc Hotkey
-map <F6> :vsplit<CR><C-L>:e ~/.vimrc<CR>
+map <F6> :tabnew<CR><C-L>:e ~/.vimrc<CR>
 
 " Tagbar
 map <F8> :TagbarOpenAutoClose<CR>

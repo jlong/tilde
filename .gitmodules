@@ -88,3 +88,6 @@
 [submodule "vim/bundle/vim-seek"]
 	path = vim/bundle/vim-seek
 	url = https://github.com/goldfeld/vim-seek
+[submodule "vim/bundle/vim-tabline"]
+	path = vim/bundle/vim-tabline
+	url = https://github.com/mkitt/tabline.vim
