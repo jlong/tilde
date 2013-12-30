@@ -68,7 +68,7 @@ autocmd BufRead * highlight ExtraWhitespace ctermbg=bg guibg=bg " Hide extra whi
 
 hi TabLine      ctermfg=Gray  ctermbg=Black     cterm=NONE
 hi TabLineFill  ctermfg=Gray  ctermbg=Black     cterm=NONE
-hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
+hi TabLineSel   ctermfg=Black  ctermbg=White  cterm=NONE
 
 " Mouse
 set mouse=a
