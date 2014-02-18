@@ -66,9 +66,9 @@ set t_Co=256
 colorscheme lucius-dark
 autocmd BufRead * highlight ExtraWhitespace ctermbg=bg guibg=bg " Hide extra whitespace
 
-hi TabLine      ctermfg=Gray  ctermbg=Black     cterm=NONE
-hi TabLineFill  ctermfg=Gray  ctermbg=Black     cterm=NONE
-hi TabLineSel   ctermfg=Black  ctermbg=White  cterm=NONE
+hi TabLine      ctermfg=Gray   ctermbg=Black   cterm=NONE
+hi TabLineFill  ctermfg=Gray   ctermbg=Black   cterm=NONE
+hi TabLineSel   ctermfg=Black  ctermbg=White   cterm=NONE
 
 " Mouse
 set mouse=a
@@ -168,9 +168,6 @@ let g:goyo_margin_top=1
 let g:goyo_margin_bottom=1
 map <F5> :Goyo<CR>
 
-" gundo - an undo tree browser
-" nnoremap <F6> :GundoToggle<CR>
-
 " vimrc Hotkey
 map <F6> :tabnew<CR><C-L>:e ~/.vimrc<CR>
 
@@ -182,12 +179,6 @@ nmap <leader>html _i<html><CR><ESC>0i<TAB><head><CR><ESC>0i<TAB><TAB><title></ti
 
 " Copy to selection to clipboard
 vmap <leader> !pbcopy && pbpaste<CR>
-
-" Command-Return for fullscreen
-"if has("gui_macvim")
-"  set fuoptions=maxhorz,maxvert " Fullscreen takes up entire screen
-"  macmenu Window.Toggle\ Full\ Screen\ Mode key=<D-CR>
-"endif
 
 nnoremap <leader>b :b<space><Tab>
 

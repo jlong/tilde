@@ -116,3 +116,6 @@
 --ignore-file=match:/[.]js[.]min$/
 --ignore-file=match:/[.]min[.]css$/
 --ignore-file=match:/[.]css[.]min$/
+--ignore-file=match:/forbes_g2000[.]xml$/
+--ignore-file=match:/[.]po$/
+--ignore-directory=po
