@@ -91,3 +91,6 @@
 [submodule "vim/bundle/vim-tabline"]
 	path = vim/bundle/vim-tabline
 	url = https://github.com/mkitt/tabline.vim
+[submodule "vim/bundle/wildfire"]
+	path = vim/bundle/wildfire
+	url = git@github.com:gcmt/wildfire.vim.git
