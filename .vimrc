@@ -1,8 +1,23 @@
-" Vim Bundles
-call pathogen#infect()                                     " Thank you, T. Pope!
-call pathogen#helptags()                                   " Helptags for all bundles
+set nocompatible     " We aren't interested in backward compatability with vi, set before all other
+filetype off         " Required for Vundle
 
-set nocompatible                                           " We aren't interested in backward compatability with vi, set before all other
+
+" Vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Vundle Plugins
+
+Plugin 'mileszs/ack.vim'
+Plugin 'scrooloose/nerdtree'
+
+" File types
+filetype plugin indent on                                  " Required for Vundle
+autocmd BufRead,BufNewFile Capfile set filetype=ruby       " recognize Capfile
+autocmd BufRead,BufNewFile Gemfile set filetype=ruby       " recognize Gemfile
+autocmd BufRead,BufNewFile *.jst set filetype=html
+
+" Other settings
 set history=1000                                           " Lots of command line history
 set autoindent
 set autowrite
@@ -82,11 +97,6 @@ if has("gui_running")
   set transparency=8
 endif
 
-" File types
-filetype plugin indent on
-autocmd BufRead,BufNewFile Capfile set filetype=ruby       " recognize Capfile
-autocmd BufRead,BufNewFile Gemfile set filetype=ruby       " recognize Gemfile
-autocmd BufRead,BufNewFile *.jst set filetype=html
 
 " Expand all folds
 autocmd BufRead * call feedkeys("zR")
