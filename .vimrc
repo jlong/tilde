@@ -7,10 +7,11 @@ call vundle#rc()
 Plugin 'gmarik/vundle'                                      " Let Vundle manage Vundle (required)
 
 " Plugins
+Plugin 'flazz/vim-colorschemes'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-fugitive' 
-Plugin 'tpope/vim-git' 
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'bronson/vim-trailing-whitespace'
@@ -21,16 +22,15 @@ Plugin 'vim-scripts/gitignore'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'junegunn/goyo.vim'
-" Plugin 'goldfeld/vim-seek'
+Plugin 'goldfeld/vim-seek'
 Plugin 'mkitt/tabline.vim'
-" Plugin 'gcmt/wildfire.vim'
+Plugin 'gcmt/wildfire.vim'
 Plugin 'jlong/sass-convert.vim'
 
 " File types
 filetype plugin indent on                                  " Required for Vundle
 autocmd BufRead,BufNewFile Capfile set filetype=ruby       " recognize Capfile
 autocmd BufRead,BufNewFile Gemfile set filetype=ruby       " recognize Gemfile
-autocmd BufRead,BufNewFile *.jst set filetype=html
 
 " Other settings
 set history=1000                                           " Lots of command line history
@@ -90,15 +90,7 @@ set statusline+=\[%{strlen(&ft)?&ft:'none'}]\ \ \          " file type
 set statusline+=%-14(%l,%c%V%)                             " line, character
 set statusline+=%<%P                                       " file position
 
-" Syntax highlighting
-syntax enable
-set t_Co=256
-colorscheme lucius-dark
-autocmd BufRead * highlight ExtraWhitespace ctermbg=bg guibg=bg " Hide extra whitespace
 
-hi TabLine      ctermfg=Gray   ctermbg=Black   cterm=NONE
-hi TabLineFill  ctermfg=Gray   ctermbg=Black   cterm=NONE
-hi TabLineSel   ctermfg=Black  ctermbg=White   cterm=NONE
 
 " Mouse
 set mouse=a
@@ -130,6 +122,33 @@ if &term =~ "xterm.*"
 endif
 
 " ==================
+" Color scheme
+" ==================
+
+" Syntax highlighting
+syntax enable
+set t_Co=256
+
+" Start with Lucius
+colorscheme lucius
+
+" Darken the background
+hi Normal        ctermfg=253      ctermbg=16
+
+" Vertical split
+hi VertSplit     guifg=#363946    guibg=#363946   gui=none
+hi VertSplit     ctermfg=237      ctermbg=237     cterm=none
+
+" Tabline
+hi TabLine       ctermfg=244      ctermbg=235
+hi TabLineFill   ctermfg=244      ctermbg=235
+hi TabLineSel    ctermfg=white    ctermbg=32
+
+" Our whitespace plugin highlights it by default. Let's turn this off for now:
+autocmd BufRead * highlight ExtraWhitespace ctermbg=bg guibg=bg
+
+
+" ==================
 " Buffers
 " ==================
 
@@ -146,6 +165,17 @@ if v:version >= 703                                        " Persistent UNDO, on
 endif
 
 set clipboard+=unnamed                                     " Cause yank, p, etc to work with the System clipboard (requires +clipboard)
+
+
+" ==================
+" Custom commands
+" ==================
+
+function! RunCommands()
+    exe getline('.')
+endfunction
+command -range RunCommands <line1>,<line2>call RunCommands()
+
 
 " ==================
 " Mappings
