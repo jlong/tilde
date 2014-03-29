@@ -1,40 +1,40 @@
 [user]
-	name = John W. Long
-	email = john@uservoice.com
+  name = John W. Long
+  email = john@uservoice.com
 [color]
   ui = auto
-	status = auto
-	diff = auto
-	branch = auto
+  status = auto
+  diff = auto
+  branch = auto
 [alias]
-	aa = !git add -u && git add . && git status
-	st = status
-	br = branch
-	ci = commit
-	cia = commit -a
-	co = checkout
-	df = diff
-	lg = log
-	up = pull
+  aa = !git add -u && git add . && git status
+  st = status
+  br = branch
+  ci = commit
+  cia = commit -a
+  co = checkout
+  df = diff
+  lg = log
+  up = pull
   changelog = log --no-merges --date=short --pretty=format:'%Cgreen%cd%Creset %Cred%h%Creset -%C(yellow)%d%Creset %cN: %s'
   mine = log --author=john
   delete = "!f() { git branch -d $1 && git push origin :$1; }; f"
 [merge]
-	summary = true
-	tool = opendiff
+  summary = true
+  tool = opendiff
 [core]
   editor = vim --nofork
-	legacyheaders = false
-	excludesfile = /Users/jlong/.gitignore
+  legacyheaders = false
+  excludesfile = /Users/jlong/.gitignore
 [push]
   default = current
 [repack]
-	usedeltabaseoffset = true
+  usedeltabaseoffset = true
 [apply]
-	whitespace = nowarn
+  whitespace = nowarn
 [github]
-	user = jlong
+  user = jlong
 [svn]
-	authorsfile = /Users/jlong/.gitusers
+  authorsfile = /Users/jlong/.gitusers
 [push]
-	default = tracking
+  default = tracking

@@ -191,6 +191,7 @@ silent! nmap <unique> <silent> <Leader>f :CtrlP<CR>
 nnoremap <leader>F :CtrlPClearAllCaches<CR>:CtrlP<CR>
 set wildignore+=public/assets/**,build/**,vendor/plugins/**,vendor/linked_gems/**,vendor/gems/**,vendor/rails/**,vendor/ruby/**,vendor/cache/**,Libraries/**,coverage/**
 let g:ctrlp_max_height=20
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard']
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v(\.git|\.yardoc|log|tmp)$',
   \ 'file': '\v\.(so|dat|DS_Store|png|gif|jpg|jpeg)$'
@@ -255,8 +256,8 @@ set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 
 " Space pages
-map <Space> <C-d>
-map <S-Space> <C-u>
+"map <Space> <C-d>
+"map <S-Space> <C-u>
 
 " Scroll the viewport faster
 nnoremap <C-e> 3<C-e>
