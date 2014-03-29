@@ -1,15 +1,28 @@
-set nocompatible     " We aren't interested in backward compatability with vi, set before all other
-filetype off         " Required for Vundle
-
+set nocompatible                                            " We aren't interested in backward compatability with vi, set before all other
 
 " Vundle
+filetype off                                                " Required for Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+Plugin 'gmarik/vundle'                                      " Let Vundle manage Vundle (required)
 
-" Vundle Plugins
-
+" Plugins
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive' 
+Plugin 'tpope/vim-git' 
+Plugin 'plasticboy/vim-markdown'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'pangloss/vim-javascript'
+Plugin 'juvenn/mustache.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-scripts/gitignore'
+Plugin 'bling/vim-airline'
+Plugin 'scrooloose/syntastic'
+Plugin 'junegunn/goyo.vim'
+" Plugin 'goldfeld/vim-seek'
+Plugin 'mkitt/tabline.vim'
+" Plugin 'gcmt/wildfire.vim'
 
 " File types
 filetype plugin indent on                                  " Required for Vundle
