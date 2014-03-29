@@ -11,6 +11,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive' 
 Plugin 'tpope/vim-git' 
+Plugin 'airblade/vim-gitgutter'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'pangloss/vim-javascript'
@@ -23,6 +24,7 @@ Plugin 'junegunn/goyo.vim'
 " Plugin 'goldfeld/vim-seek'
 Plugin 'mkitt/tabline.vim'
 " Plugin 'gcmt/wildfire.vim'
+Plugin 'jlong/sass-convert.vim'
 
 " File types
 filetype plugin indent on                                  " Required for Vundle
