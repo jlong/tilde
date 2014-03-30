@@ -23,3 +23,12 @@ hi TabLineSel    ctermfg=white    ctermbg=126
 " Cursor line
 hi CursorLine    ctermfg=NONE     ctermbg=234
 
+" Keywords
+hi Function      guifg=#efaf7f    gui=none
+hi Function      ctermfg=216      cterm=none
+hi Identifier    guifg=#efaf7f    gui=none
+hi Identifier    ctermfg=216      cterm=none
+hi Keyword       guifg=#efaf7f    gui=none
+hi Keyword       ctermfg=216      cterm=none
+hi Special       guifg=#efaf7f    gui=none
+hi Special       ctermfg=216      cterm=none
