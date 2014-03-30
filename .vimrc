@@ -7,27 +7,30 @@ call vundle#rc()
 Plugin 'gmarik/vundle'                                      " Let Vundle manage Vundle (required)
 
 " Plugins
-Plugin 'flazz/vim-colorschemes'
-Plugin 'mileszs/ack.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-git'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'pangloss/vim-javascript'
-Plugin 'juvenn/mustache.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'vim-scripts/gitignore'
-Plugin 'bling/vim-airline'
-Plugin 'scrooloose/syntastic'
-Plugin 'junegunn/goyo.vim'
-Plugin 'goldfeld/vim-seek'
-Plugin 'mkitt/tabline.vim'
-Plugin 'gcmt/wildfire.vim'
-Plugin 'jlong/sass-convert.vim'
-Plugin 'guns/xterm-color-table.vim'
-" runtime ftplugin/man.vim " :Man plugin
+Plugin 'flazz/vim-colorschemes'                             " A zillion Vim color schemes
+Plugin 'mileszs/ack.vim'                                    " Simple Vim interface to Ack
+Plugin 'scrooloose/nerdtree'                                " File tree plugin for Vim
+Plugin 'tpope/vim-fugitive'                                 " Tim Pope's amazing git plugin
+Plugin 'tpope/vim-git'                                      " Basic git support
+Plugin 'airblade/vim-gitgutter'                             " Keep track of additions, subtractions, and modifications
+Plugin 'plasticboy/vim-markdown'                            " Markdown syntax support
+Plugin 'bronson/vim-trailing-whitespace'                    " Whitespace plugin
+Plugin 'pangloss/vim-javascript'                            " Better support for JavaScript syntax
+Plugin 'juvenn/mustache.vim'                                " Mustache syntax support
+Plugin 'kien/ctrlp.vim'                                     " Easily open files
+Plugin 'vim-scripts/gitignore'                              " Sync wildignore with .gitignore
+Plugin 'bling/vim-airline'                                  " Pretty status line
+Plugin 'scrooloose/syntastic'                               " Syntax checking
+Plugin 'junegunn/goyo.vim'                                  " Distraction-free writing for Vim
+Plugin 'goldfeld/vim-seek'                                  " Quickly navigate with s and S
+Plugin 'mkitt/tabline.vim'                                  " Easier control of tabline
+Plugin 'gcmt/wildfire.vim'                                  " Smart selection of closest text object with <ENTER>
+Plugin 'jlong/sass-convert.vim'                             " Easily convert between Sass syntaxes
+Plugin 'guns/xterm-color-table.vim'                         " Show color table for adjusting Vim themes
+Plugin 'Raimondi/delimitMate'                               " Automatically close brackets and quotes like Textmate
+Plugin 'ervandew/supertab'                                  " <Tab> completion while in insert mode
+Plugin 'msanders/snipmate.vim'                              " Textmate snippets in Vim!
+" runtime ftplugin/man.vim                                    " :Man plugin
 
 " File types
 filetype plugin indent on                                  " Required for Vundle
@@ -72,6 +75,8 @@ set scrolloff=2                                            " Scroll up or down w
 
 set visualbell
 set cursorline                                             " highlight the current line
+set winheight=15
+set winminheight=0
 
 " Status line
 let g:airline_powerline_fonts=1                            " use airline with powerline fonts
@@ -133,10 +138,13 @@ hi Normal        ctermfg=253      ctermbg=16
 hi VertSplit     guifg=#363946    guibg=#363946   gui=none
 hi VertSplit     ctermfg=237      ctermbg=237     cterm=none
 
-" Tabline
+" Tab line
 hi TabLine       ctermfg=244      ctermbg=234
 hi TabLineFill   ctermfg=244      ctermbg=234
 hi TabLineSel    ctermfg=white    ctermbg=126
+
+" Cursor line
+hi CursorLine    ctermfg=NONE     ctermbg=234
 
 " Our whitespace plugin highlights it by default. Let's turn this off for now:
 autocmd BufRead * highlight ExtraWhitespace ctermbg=bg guibg=bg
@@ -185,8 +193,6 @@ imap ;; <Esc>
 " Paste linewise after with indent
 nnoremap <leader>p :put *<cr>`[v`]=
 
-set winheight=15 winminheight=0
-
 " move between windows
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
@@ -209,7 +215,6 @@ nmap <C-_> <C-W>_
 nmap <F2> <leader>d<CR>
 
 " toggle line numbers
-" set number        " Show line numbers on the left
 nmap <F3> :set nonumber!<CR>
 
 " toggle wordwrap
