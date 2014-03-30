@@ -6,30 +6,39 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Plugin 'gmarik/vundle'                                      " Let Vundle manage Vundle (required)
 
-" Plugins
-Plugin 'flazz/vim-colorschemes'                             " A zillion Vim color schemes
-Plugin 'mileszs/ack.vim'                                    " Simple Vim interface to Ack
-Plugin 'scrooloose/nerdtree'                                " File tree plugin for Vim
-Plugin 'tpope/vim-fugitive'                                 " Tim Pope's amazing git plugin
-Plugin 'tpope/vim-git'                                      " Basic git support
-Plugin 'airblade/vim-gitgutter'                             " Keep track of additions, subtractions, and modifications
-Plugin 'plasticboy/vim-markdown'                            " Markdown syntax support
-Plugin 'bronson/vim-trailing-whitespace'                    " Whitespace plugin
-Plugin 'pangloss/vim-javascript'                            " Better support for JavaScript syntax
-Plugin 'juvenn/mustache.vim'                                " Mustache syntax support
-Plugin 'kien/ctrlp.vim'                                     " Easily open files
-Plugin 'vim-scripts/gitignore'                              " Sync wildignore with .gitignore
-Plugin 'bling/vim-airline'                                  " Pretty status line
-Plugin 'scrooloose/syntastic'                               " Syntax checking
-Plugin 'junegunn/goyo.vim'                                  " Distraction-free writing for Vim
+" Text manipulation and navigation
 Plugin 'goldfeld/vim-seek'                                  " Quickly navigate with s and S
-Plugin 'mkitt/tabline.vim'                                  " Easier control of tabline
 Plugin 'gcmt/wildfire.vim'                                  " Smart selection of closest text object with <ENTER>
-Plugin 'jlong/sass-convert.vim'                             " Easily convert between Sass syntaxes
-Plugin 'guns/xterm-color-table.vim'                         " Show color table for adjusting Vim themes
+
+" IDE-like features
+Plugin 'scrooloose/nerdtree'                                " File tree plugin for Vim
+Plugin 'kien/ctrlp.vim'                                     " Easily open files
+Plugin 'mileszs/ack.vim'                                    " Simple Vim interface to Ack
+Plugin 'bling/vim-airline'                                  " Pretty status line
+Plugin 'mkitt/tabline.vim'                                  " Easier control of tabline
+Plugin 'airblade/vim-gitgutter'                             " Keep track of additions, subtractions, and modifications
+Plugin 'vim-scripts/gitignore'                              " Sync wildignore with .gitignore
 Plugin 'Raimondi/delimitMate'                               " Automatically close brackets and quotes like Textmate
 Plugin 'ervandew/supertab'                                  " <Tab> completion while in insert mode
 Plugin 'msanders/snipmate.vim'                              " Textmate snippets in Vim!
+Plugin 'junegunn/goyo.vim'                                  " Distraction-free writing for Vim
+Plugin 'scrooloose/syntastic'                               " Syntax checking
+
+" Language support
+Plugin 'jlong/sass-convert.vim'                             " Easily convert between Sass syntaxes
+Plugin 'plasticboy/vim-markdown'                            " Markdown syntax support
+Plugin 'pangloss/vim-javascript'                            " Better support for JavaScript syntax
+Plugin 'juvenn/mustache.vim'                                " Mustache syntax support
+Plugin 'tpope/vim-haml'                                     " Support for Haml, Sass, & SCSS
+Plugin 'vim-ruby/vim-ruby'                                  " Better support for Ruby
+Plugin 'tpope/vim-rails'                                    " Support for Rails applications
+
+" Misc plugins
+Plugin 'flazz/vim-colorschemes'                             " A zillion Vim color schemes
+Plugin 'tpope/vim-git'                                      " Basic git support
+Plugin 'tpope/vim-fugitive'                                 " Tim Pope's amazing git plugin
+Plugin 'bronson/vim-trailing-whitespace'                    " Whitespace plugin
+Plugin 'guns/xterm-color-table.vim'                         " Show color table for adjusting Vim themes
 " runtime ftplugin/man.vim                                    " :Man plugin
 
 " File types
