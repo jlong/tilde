@@ -134,8 +134,8 @@ hi VertSplit     guifg=#363946    guibg=#363946   gui=none
 hi VertSplit     ctermfg=237      ctermbg=237     cterm=none
 
 " Tabline
-hi TabLine       ctermfg=244      ctermbg=235
-hi TabLineFill   ctermfg=244      ctermbg=235
+hi TabLine       ctermfg=244      ctermbg=234
+hi TabLineFill   ctermfg=244      ctermbg=234
 hi TabLineSel    ctermfg=white    ctermbg=126
 
 " Our whitespace plugin highlights it by default. Let's turn this off for now:
