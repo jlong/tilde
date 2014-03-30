@@ -21,6 +21,7 @@ Plugin 'vim-scripts/gitignore'                              " Sync wildignore wi
 Plugin 'Raimondi/delimitMate'                               " Automatically close brackets and quotes like Textmate
 Plugin 'ervandew/supertab'                                  " <Tab> completion while in insert mode
 Plugin 'msanders/snipmate.vim'                              " Textmate snippets in Vim!
+Plugin 'tpope/vim-endwise'                                  " Helps to end certain structures automatically
 Plugin 'junegunn/goyo.vim'                                  " Distraction-free writing for Vim
 Plugin 'scrooloose/syntastic'                               " Syntax checking
 
