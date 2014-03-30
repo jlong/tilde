@@ -1,5 +1,9 @@
 set nocompatible                                            " We aren't interested in backward compatability with vi, set before all other
 
+" ====================
+" Plugins
+" ====================
+
 " Initialize Vundle
 filetype off                                                " Required for Vundle
 set rtp+=~/.vim/bundle/vundle/
@@ -44,6 +48,11 @@ Plugin 'bronson/vim-trailing-whitespace'                    " Whitespace plugin
 Plugin 'guns/xterm-color-table.vim'                         " Show color table for adjusting Vim themes
 " runtime ftplugin/man.vim                                    " :Man plugin
 
+
+" ====================
+" General
+" ====================
+
 " File types
 filetype plugin indent on                                  " Required for Vundle
 autocmd BufRead,BufNewFile Capfile set filetype=ruby       " recognize Capfile
@@ -74,6 +83,12 @@ syntax enable                                              " Enable syntax higli
 set t_Co=256                                               " Turn 256 color support on
 colorscheme luscious                                       " My custom theme
 
+" User interface
+set visualbell
+set cursorline                                             " highlight the current line
+set winheight=15
+set winminheight=0
+
 " Other settings
 set history=1000                                           " Lots of command line history
 set autowrite
@@ -85,15 +100,6 @@ set showmatch                                              " Show matching brack
 set nojoinspaces                                           " Don't join lines with 2 spaces after a period
 set scrolloff=2                                            " Scroll up or down with at least 2 lines on either side of the cursor
 
-
-" ====================
-" User Interface
-" ====================
-
-set visualbell
-set cursorline                                             " highlight the current line
-set winheight=15
-set winminheight=0
 
 " Status line
 let g:airline_powerline_fonts=1                            " use airline with powerline fonts
