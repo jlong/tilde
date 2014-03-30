@@ -1,6 +1,6 @@
 set nocompatible                                            " We aren't interested in backward compatability with vi, set before all other
 
-" Vundle
+" Initialize Vundle
 filetype off                                                " Required for Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -26,71 +26,65 @@ Plugin 'goldfeld/vim-seek'
 Plugin 'mkitt/tabline.vim'
 Plugin 'gcmt/wildfire.vim'
 Plugin 'jlong/sass-convert.vim'
+Plugin 'guns/xterm-color-table.vim'
+" runtime ftplugin/man.vim " :Man plugin
 
 " File types
 filetype plugin indent on                                  " Required for Vundle
 autocmd BufRead,BufNewFile Capfile set filetype=ruby       " recognize Capfile
 autocmd BufRead,BufNewFile Gemfile set filetype=ruby       " recognize Gemfile
 
-" Other settings
-set history=1000                                           " Lots of command line history
+" Search
+set ignorecase smartcase                                   " Ignore case in search patterns, unless uppercase letters used
+set incsearch                                              " Incremental searching with /
+set hlsearch                                               " Highlight searches
+
+" Indentation
 set autoindent
-set autowrite
 set expandtab                                              " Expand tabs to spaces
 set shiftwidth=2
 set tabstop=2
 set smarttab
-set wildmode=list:longest                                  " Helpful tab completion
+
+" Directories
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp        " Backup Dir
+set directory=~/.vim-tmp/,~/.tmp/,~/tmp/,/var/tmp/,/tmp/   " Swapfile Dir
+
+" Word wrap
+set nowrap                                                 " Don't wrap lines longer than window width
+set linebreak                                              " Wrap on words
+
+" Other settings
+set history=1000                                           " Lots of command line history
+set autowrite
+set wildmode=list:longest                                  " Helpful command tab completion
 set wildcharm=<Tab>                                        " :h wildcharm
 set backspace=start,indent,eol                             " Allow delete across lines
-
 set fileformats=unix,mac,dos
-
-set showmatch
-set nojoinspaces
-set scrolloff=2
-set splitbelow
-
-" :Man plugin
-runtime ftplugin/man.vim
-
-" Ignore case in search patterns, unless uppercase letters used
-set ignorecase smartcase
-
-" Backup Dir
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
-" Swapfile Dir
-set directory=~/.vim-tmp//,~/.tmp//,~/tmp//,/var/tmp//,/tmp//
-
-" Clear the backup dir
-command ClearBackups execute "!rm -rf ~/.vim-tmp/*"
+set showmatch                                              " Show matching brackets
+set nojoinspaces                                           " Don't join lines with 2 spaces after a period
+set scrolloff=2                                            " Scroll up or down with at least 2 lines on either side of the cursor
 
 
 " ====================
 " User Interface
 " ====================
 
-set hlsearch                                               " I like highlighted searches
 set visualbell
 set cursorline                                             " highlight the current line
 
 " Status line
 let g:airline_powerline_fonts=1                            " use airline with powerline fonts
-let g:airline_theme='badwolf'                                " airline theme
+let g:airline_theme='badwolf'                              " airline theme
 set laststatus=2                                           " always show status line
 set statusline=
 set statusline+=%-3.3n\                                    " buffer number
 set statusline+=%f%{&modified?'+':''}\                     " filename (+ modified)
 set statusline+=%h%r%w\                                    " status flags
 set statusline+=%=                                         " right align remainder
-"set statusline+=0x%-8B                                    " character value
 set statusline+=\[%{strlen(&ft)?&ft:'none'}]\ \ \          " file type
-"set statusline+=%-20{fugitive#statusline()}\ 
 set statusline+=%-14(%l,%c%V%)                             " line, character
 set statusline+=%<%P                                       " file position
-
-
 
 " Mouse
 set mouse=a
@@ -103,7 +97,6 @@ if has("gui_running")
   set noantialias
   set transparency=8
 endif
-
 
 " Expand all folds
 autocmd BufRead * call feedkeys("zR")
@@ -120,6 +113,7 @@ if &term =~ "xterm.*"
     map <expr> <Esc>[200~ XTermPasteBegin("i")
     imap <expr> <Esc>[200~ XTermPasteBegin("")
 endif
+
 
 " ==================
 " Color scheme
@@ -142,7 +136,7 @@ hi VertSplit     ctermfg=237      ctermbg=237     cterm=none
 " Tabline
 hi TabLine       ctermfg=244      ctermbg=235
 hi TabLineFill   ctermfg=244      ctermbg=235
-hi TabLineSel    ctermfg=white    ctermbg=32
+hi TabLineSel    ctermfg=white    ctermbg=126
 
 " Our whitespace plugin highlights it by default. Let's turn this off for now:
 autocmd BufRead * highlight ExtraWhitespace ctermbg=bg guibg=bg
@@ -171,15 +165,20 @@ set clipboard+=unnamed                                     " Cause yank, p, etc 
 " Custom commands
 " ==================
 
+" Handy for testing new .vimrc changes
 function! RunCommands()
     exe getline('.')
 endfunction
 command -range RunCommands <line1>,<line2>call RunCommands()
 
+" Clear the backup dir
+command ClearBackups execute "!rm -rf ~/.vim-tmp/*"
+
 
 " ==================
 " Mappings
 " ==================
+
 let mapleader = ","                                        " A way to make command mapping shorter; see <leader> throughout this
 imap ;; <Esc>
 
@@ -214,8 +213,6 @@ nmap <F2> <leader>d<CR>
 nmap <F3> :set nonumber!<CR>
 
 " toggle wordwrap
-set nowrap          " Don't wrap lines longer than window width
-set linebreak       " Wrap on words
 nmap <F4> :set nowrap!<CR>
 
 " Goyo
@@ -226,20 +223,7 @@ map <F5> :Goyo<CR>
 " vimrc Hotkey
 map <F6> :tabnew<CR><C-L>:e ~/.vimrc<CR>
 
-" Tagbar
-map <F8> :TagbarOpenAutoClose<CR>
-
-" html template
-nmap <leader>html _i<html><CR><ESC>0i<TAB><head><CR><ESC>0i<TAB><TAB><title></title><CR><ESC>0i<TAB></head><CR><ESC>0i<TAB><body><CR><ESC>0i<TAB></body><CR><ESC>0i</html><ESC>bbbbbbbbbbbbbba
-
-" Copy to selection to clipboard
-vmap <leader> !pbcopy && pbpaste<CR>
-
 nnoremap <leader>b :b<space><Tab>
-
-" edit vimrc
-nmap <leader>v :sp $MYVIMRC<CR><C-W>_
-nmap <leader>V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR><leader>d<leader>d<C-L>
 
 " Ctrl-p
 silent! nmap <unique> <silent> <Leader>f :CtrlP<CR>
@@ -276,43 +260,12 @@ nnoremap <leader><leader>j :Rjavascript<space>
 nnoremap <leader><leader>t :Rtask<space>
 nnoremap <leader><leader>r :Rspec<space>
 
-" ==================
-" Tags
-"   See http://sites.google.com/site/daveparillo/software-development/vim/ctags
-"
-"   :!ctags -R  // recursively generate tags for every known file type
-" ==================
-" TODO Learn to use tags beyond the TlistToggle...
-"set tags=./tags
-"map <leader>gt :execute
-
-" Taglist plugin
-let Tlist_Show_One_File = 1
-map <leader>S :TlistToggle<CR>
-let tlist_javascript_settings='javascript;v:globals;c:classes;f:functions;m:methods;p:properties;r:protoype'
-
-
-" Searching
-set incsearch                                           " Incremental searching with /
-
 " Command-Shift-F for Ack
 nnoremap <D-F> :Ack<space>""<Left>
 nnoremap <leader>a :Ack<space>""<Left>
 nnoremap <leader>A :Ack<cword><CR>
 nnoremap <leader>rw :Ack<space>--type=ruby<space><cword><CR>
 vmap <leader>A "ry:Ack<space>"<C-r>r"<CR>
-
-" Substitution
-nmap <leader>r :%s/<C-r><C-w>/
-vmap <leader>r "ry:%s/<C-r>r/
-
-" Show trailing whitespace with ,s
-set listchars=tab:>-,trail:·,eol:$
-nmap <silent> <leader>s :set nolist!<CR>
-
-" Space pages
-"map <Space> <C-d>
-"map <S-Space> <C-u>
 
 " Scroll the viewport faster
 nnoremap <C-e> 3<C-e>
