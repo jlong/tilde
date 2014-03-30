@@ -57,6 +57,11 @@ set directory=~/.vim-tmp/,~/.tmp/,~/tmp/,/var/tmp/,/tmp/   " Swapfile Dir
 set nowrap                                                 " Don't wrap lines longer than window width
 set linebreak                                              " Wrap on words
 
+" Syntax highlighting
+syntax enable                                              " Enable syntax higlighting
+set t_Co=256                                               " Turn 256 color support on
+colorscheme luscious                                       " My custom theme
+
 " Other settings
 set history=1000                                           " Lots of command line history
 set autowrite
@@ -103,6 +108,9 @@ if has("gui_running")
   set transparency=8
 endif
 
+" Our whitespace plugin highlights it by default. Let's turn this off for now:
+autocmd BufRead * highlight ExtraWhitespace ctermbg=bg guibg=bg
+
 " Expand all folds
 autocmd BufRead * call feedkeys("zR")
 
@@ -118,36 +126,6 @@ if &term =~ "xterm.*"
     map <expr> <Esc>[200~ XTermPasteBegin("i")
     imap <expr> <Esc>[200~ XTermPasteBegin("")
 endif
-
-
-" ==================
-" Color scheme
-" ==================
-
-" Syntax highlighting
-syntax enable
-set t_Co=256
-
-" Start with Lucius
-colorscheme lucius
-
-" Darken the background
-hi Normal        ctermfg=253      ctermbg=16
-
-" Vertical split
-hi VertSplit     guifg=#363946    guibg=#363946   gui=none
-hi VertSplit     ctermfg=237      ctermbg=237     cterm=none
-
-" Tab line
-hi TabLine       ctermfg=244      ctermbg=234
-hi TabLineFill   ctermfg=244      ctermbg=234
-hi TabLineSel    ctermfg=white    ctermbg=126
-
-" Cursor line
-hi CursorLine    ctermfg=NONE     ctermbg=234
-
-" Our whitespace plugin highlights it by default. Let's turn this off for now:
-autocmd BufRead * highlight ExtraWhitespace ctermbg=bg guibg=bg
 
 
 " ==================
