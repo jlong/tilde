@@ -16,6 +16,8 @@ Plugin 'kien/ctrlp.vim'                                     " Easily open files
 Plugin 'mileszs/ack.vim'                                    " Simple Vim interface to Ack
 Plugin 'bling/vim-airline'                                  " Pretty status line
 Plugin 'mkitt/tabline.vim'                                  " Easier control of tabline
+" Plugin 'scrooloose/nerdcommenter'                           " Handle comments better
+Plugin 'tomtom/tcomment_vim'                                " Another plugin for comments
 Plugin 'airblade/vim-gitgutter'                             " Keep track of additions, subtractions, and modifications
 Plugin 'vim-scripts/gitignore'                              " Sync wildignore with .gitignore
 Plugin 'Raimondi/delimitMate'                               " Automatically close brackets and quotes like Textmate
