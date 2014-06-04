@@ -23,6 +23,9 @@ hi TabLineSel    ctermfg=white    ctermbg=126
 " Cursor line
 hi CursorLine    ctermfg=NONE     ctermbg=234
 
+" Color Column
+hi ColorColumn   ctermfg=NONE     ctermbg=234
+
 " Keywords
 hi Function      guifg=#efaf7f    gui=none
 hi Function      ctermfg=216      cterm=none
@@ -32,3 +35,6 @@ hi Keyword       guifg=#efaf7f    gui=none
 hi Keyword       ctermfg=216      cterm=none
 hi Special       guifg=#efaf7f    gui=none
 hi Special       ctermfg=216      cterm=none
+
+hi SpellCap      ctermfg=fg       ctermbg=none
+hi SpellCap      guifg=fg         guibg=none
