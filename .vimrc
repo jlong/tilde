@@ -16,12 +16,11 @@ Plugin 'gcmt/wildfire.vim'                                  " Smart selection of
 
 " IDE-like features
 Plugin 'scrooloose/nerdtree'                                " File tree plugin for Vim
-" Plugin 'kien/ctrlp.vim'                                     " Easily open files
-Plugin 'Shougo/unite.vim'                                   " Easily open all the things
-Plugin 'Shougo/neomru.vim'                                  " MRU for Unite
-Plugin 'Shougo/vimproc.vim'                                 " Needed for some parts of Unite
-Plugin 'pekepeke/vim-unite-repo-files'                      " A Unite source for Git repository files
-" Plugin 'mileszs/ack.vim'                                    " Simple Vim interface to Ack
+Plugin 'kien/ctrlp.vim'                                     " Easily open files
+" plugin 'shougo/unite.vim'                                   " easily open all the things
+" plugin 'shougo/neomru.vim'                                  " mru for unite
+" plugin 'shougo/vimproc.vim'                                 " needed for some parts of unite
+" Plugin 'pekepeke/vim-unite-repo-files'                      " A Unite source for Git repository files
 Plugin 'rking/ag.vim'                                       " Simple Vim interface to Ag
 Plugin 'bling/vim-airline'                                  " Pretty status line
 Plugin 'mkitt/tabline.vim'                                  " Easier control of tabline
@@ -63,6 +62,10 @@ Plugin 'xolox/vim-misc'                                     " Required by notes
 " ====================
 " General
 " ====================
+
+" Keyboard
+set timeoutlen=1000
+set ttimeoutlen=0
 
 " File types
 filetype plugin indent on                                  " Required for Vundle
@@ -109,6 +112,7 @@ set history=1000                                           " Lots of command lin
 set autowrite
 set wildmode=list:longest                                  " Helpful command tab completion
 set wildcharm=<Tab>                                        " :h wildcharm
+set wildignore+=public/assets/**,build/**,vendor/**,Libraries/**,coverage/**,tmp/**,db/sphinx/**,db/mongodb/**,logs/**,db/*.sqlite*
 set backspace=start,indent,eol                             " Allow delete across lines
 set fileformats=unix,mac,dos
 set showmatch                                              " Show matching brackets
@@ -136,8 +140,8 @@ set mouse=a
 if has("gui_running")
   set guioptions+=TlRLrb
   set guioptions-=TlRLrb
-  set guifont=Monaco:h14
-  set noantialias
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+  set antialias
   set transparency=8
 endif
 
@@ -146,9 +150,6 @@ autocmd BufRead * highlight ExtraWhitespace ctermbg=bg guibg=bg
 
 " Expand all folds
 autocmd BufRead * call feedkeys("zR")
-
-" Ignore ng-* attributes in HTML
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 
 " Make sure we can use HTML snippets in erb
 " autocmd BufNewFile,BufRead *.html.erb set filetype=eruby.html
@@ -233,14 +234,14 @@ imap ;; <Esc>
 nnoremap <leader>p :put *<cr>`[v`]=
 
 " move between windows
-nnoremap <C-J> <C-W>j
-nnoremap <C-K> <C-W>k
-nnoremap <C-H> <C-W>h
-nnoremap <C-L> <C-W>l
+" nnoremap <c-j> <c-w>j
+" nnoremap <c-k> <c-w>k
+" nnoremap <c-h> <c-w>h
+" nnoremap <c-l> <c-w>l
 
 " move and maximize
-nnoremap <D-j> <C-W>j<C-W>_
-nnoremap <D-k> <C-W>k<C-W>_
+" nnoremap <d-j> <c-w>j<c-w>_
+" nnoremap <d-k> <c-w>k<c-w>_
 
 " resize windows
 nmap <S-Left> <C-W><<C-W><
@@ -275,36 +276,44 @@ map <F6> :tabnew<CR><C-L>:e ~/.vimrc<CR>
 let g:notes_directories = ['~/Dropbox/Notes']
 map <F7> :Note master<CR>
 
+" Syntastic
+command! -nargs=* -bar -bang -count=0 -complete=dir E Explore <args> "map E: back to Explore and prevent ambiguity with syntastics :Error
+let g:syntastic_auto_loc_list=2
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"," proprietary attribute \"ui-"," proprietary attribute \"translate"," proprietary attribute \"uv-","<uv-", "trimming empty <"]
+let g:syntastic_enable_signs=1
+let g:syntastic_javascript_checkers = ["jshint"]
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_loc_list_height = 5
+
 " Ctrl-p
-" silent! nmap <unique> <silent> <Leader>f :CtrlP<CR>
-" nnoremap <leader>F :CtrlPClearAllCaches<CR>:CtrlP<CR>
-set wildignore+=public/assets/**,build/**,vendor/**,Libraries/**,coverage/**,tmp/**,db/sphinx/**,db/mongodb/**,logs/**,db/*.sqlite*
-" let g:ctrlp_max_height=20
-" let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard']
-" let g:ctrlp_custom_ignore = {
-"   \ 'dir':  '\v(\.git|\.yardoc|log|tmp)$',
-"   \ 'file': '\v\.(so|dat|DS_Store|png|gif|jpg|jpeg)$'
-"   \ }
+silent! nmap <unique> <silent> <Leader>f :CtrlP<CR>
+nnoremap <leader>F :CtrlPClearAllCaches<CR>:CtrlP<CR>
+set wildignore+=public/assets/**,build/**,vendor/plugins/**,vendor/linked_gems/**,vendor/gems/**,vendor/rails/**,vendor/ruby/**,vendor/cache/**,Libraries/**,coverage/**
+let g:ctrlp_max_height=20
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard']
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v(\.git|\.yardoc|log|tmp)$',
+  \ 'file': '\v\.(so|dat|DS_Store|png|gif|jpg|jpeg)$'
+  \ }
 
 " Unite
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', '\.\(png\|gif\|jpg\|jpeg\|ico\|tif\|tiff\|swf\|pdf\|xls\|xlsx\|po\|pot\|woff\|ttf\|eot\)$')
-" let g:unite_source_rec_async_command= 'ag --nocolor --nogroup --hidden -g ""'
-" let g:unite_source_find_default_opts = '--nocolor --nogroup --hidden -g ""'
-let g:unite_source_repo_files_rule = { 'git' : { 'located' : '.git', 'command' : 'git', 'exec' : '%c ls-files --cached --others --exclude-standard', } }
-let g:unite_source_repo_files_max_candidates = 40
-let g:unite_repo_files_ignore_pattern = '\v\.(so|dat|DS_Store|png|gif|jpg|jpeg)$'
-nnoremap <leader>f :Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
-nnoremap <leader>c :UniteWithBufferDir -no-split -short-source-names -buffer-name=files  -start-insert file:!<cr>
-nnoremap <leader>g :Unite -no-split -buffer-name=files -start-insert repo_files:!<cr>
-nnoremap <leader>m :Unite -no-split -buffer-name=mru -start-insert file_mru<cr>
-nnoremap <leader>b :Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-endfunction
+" call unite#filters#matcher_default#use(['matcher_fuzzy'])
+" call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', '\.\(png\|gif\|jpg\|jpeg\|ico\|tif\|tiff\|swf\|pdf\|xls\|xlsx\|po\|pot\|woff\|ttf\|eot\)$')
+" let g:unite_source_repo_files_rule = { 'git' : { 'located' : '.git', 'command' : 'git', 'exec' : '%c ls-files --cached --others --exclude-standard', } }
+" let g:unite_source_repo_files_max_candidates = 40
+" let g:unite_repo_files_ignore_pattern = '\v\.(so|dat|ds_store|png|gif|jpg|jpeg)$'
+" nnoremap <leader>f :unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
+" nnoremap <leader>c :unitewithbufferdir -no-split -short-source-names -buffer-name=files -start-insert file:!<cr>
+" nnoremap <leader>g :unite -no-split -buffer-name=files -start-insert repo_files:!<cr>
+" nnoremap <leader>m :unite -no-split -buffer-name=mru -start-insert file_mru<cr>
+" nnoremap <leader>b :unite -no-split -buffer-name=buffer -start-insert buffer<cr>
+" autocmd filetype unite call s:unite_settings()
+" function! s:unite_settings()
+"   " enable navigation with control-j and control-k in insert mode
+"   imap <buffer> <c-j>   <plug>(unite_select_next_line)
+"   imap <buffer> <c-k>   <plug>(unite_select_previous_line)
+" endfunction
 
 " NERDtree
 let NERDTreeWinSize=31
@@ -313,29 +322,5 @@ let NERDTreeDirArrows=1
 let NERDTreeHijackNetrw=0
 map <leader>nt :NERDTree<space>
 map <leader>nb :NERDTreeFromBookmark<space>
-" map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 map <leader>d :NERDTreeToggle
 map <leader>R :NERDTreeFind<CR>
-
-" Rails
-nnoremap <leader><leader>c :Rcontroller<space>
-nnoremap <leader><leader>m :Rmodel<space>
-nnoremap <leader><leader>a :Rmailer<space>
-nnoremap <leader><leader>v :Rview<space>
-nnoremap <leader><leader>h :Rhelper<space>
-nnoremap <leader><leader>i :Rinitializer<space>
-nnoremap <leader><leader>e :Renvironment<space>
-nnoremap <leader><leader>l :Rlib<space>
-nnoremap <leader><leader>f :Rfeature<space>
-nnoremap <leader><leader>u :Runittest<space>
-nnoremap <leader><leader>j :Rjavascript<space>
-nnoremap <leader><leader>t :Rtask<space>
-nnoremap <leader><leader>r :Rspec<space>
-
-" Ag
-nnoremap <leader>a :Ag<space>""<Left>
-nnoremap <leader>A :Ag<cword><CR>
-
-" Scroll the viewport faster
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>

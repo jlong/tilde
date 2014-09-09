@@ -1,0 +1,4 @@
+export EDITOR=vi
+export GOPATH=/Users/jlong/lib/go
+export UV_METROID_DIR=/Users/jlong/Workspaces/uservoice/metroid
+export UV_RAILS_DIR=/Users/jlong/Workspaces/uservoice/application

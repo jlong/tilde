@@ -1,10 +1,14 @@
 #!/bin/bash
 
+SCRIPT=$(cd `dirname "${BASH_SOURCE[0]}"` && pwd)/`basename "${BASH_SOURCE[0]}"`
+SCRIPTPATH=`dirname $SCRIPT`
+
 #######################
 echo "Lib"
 #######################
 
-ln -sv $PWD/lib/ $HOME/lib
+mkdir $HOME/lib
+ln -sfv $SCRIPTPATH/lib/rake-complete.rb $HOME/lib/rake-complete.rb
 
 echo ""
 
@@ -13,7 +17,7 @@ echo ""
 echo "ACK"
 #######################
 
-ln -sfv $PWD/.ackrc $HOME/.ackrc
+ln -sfv $SCRIPTPATH/.ackrc $HOME/.ackrc
 
 echo ""
 
@@ -25,9 +29,9 @@ echo "GIT"
 # A couple of things for Git that we want to be user global. Note that we
 # should NOT link .git and .gitmodules as these belong to this project and are
 # not intended to be in my user directory.
-ln -sfv $PWD/.gitconfig $HOME/.gitconfig
-ln -sfv $PWD/.gitignore $HOME/.gitignore
-ln -sfv $PWD/.gitusers $HOME/.gitusers
+ln -sfv $SCRIPTPATH/.gitconfig $HOME/.gitconfig
+ln -sfv $SCRIPTPATH/.gitignore $HOME/.gitignore
+ln -sfv $SCRIPTPATH/.gitusers $HOME/.gitusers
 
 echo ""
 
@@ -35,10 +39,10 @@ echo ""
 #######################
 echo "VIM"
 #######################
-ln -sv $PWD/vim/ $HOME/.vim
-ln -sfv $PWD/.vimrc $HOME/.vimrc
-ln -sfv $PWD/.gvimrc $HOME/.gvimrc
-mkdir $PWD/.vim-tmp
+ln -sv $SCRIPTPATH/vim/ $HOME/.vim
+ln -sfv $SCRIPTPATH/.vimrc $HOME/.vimrc
+ln -sfv $SCRIPTPATH/.gvimrc $HOME/.gvimrc
+mkdir $SCRIPTPATH/.vim-tmp
 
 # Pull in our .vim/bundles
 git submodule update --init
@@ -50,7 +54,7 @@ echo ""
 echo "IRB"
 #######################
 
-ln -sfv $PWD/.irbrc $HOME/.irbrc
+ln -sfv $SCRIPTPATH/.irbrc $HOME/.irbrc
 
 echo ""
 
@@ -59,7 +63,7 @@ echo "JSHint"
 #######################
 
 npm install -g jshint
-ln -sfv $PWD/.jshintrc $HOME/.jshintrc
+ln -sfv $SCRIPTPATH/.jshintrc $HOME/.jshintrc
 
 echo ""
 
@@ -68,13 +72,15 @@ echo ""
 echo "Bash Profile"
 #######################
 
-ln -sfv $PWD/.aliases $HOME/.aliases
-ln -sfv $PWD/.projects $HOME/.projects
-ln -sfv $PWD/.git-completion $HOME/.git-completion
+ln -sfv $SCRIPTPATH/.exports $HOME/.exports
+ln -sfv $SCRIPTPATH/.aliases $HOME/.aliases
+ln -sfv $SCRIPTPATH/.projects $HOME/.projects
+ln -sfv $SCRIPTPATH/.git-completion $HOME/.git-completion
 
 echo ""
 echo "Files linked. Add the following lines to your .bash_profile:"
 echo ""
+echo "  source ~/.exports"
 echo "  source ~/.aliases"
 echo "  source ~/.git-completion"
 echo "  source ~/.projects"
