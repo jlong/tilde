@@ -47,6 +47,9 @@ mkdir $SCRIPTPATH/.vim-tmp
 # Pull in our .vim/bundles
 git submodule update --init
 
+# Install plugins
+vim +PluginInstall +qall
+
 echo ""
 
 
