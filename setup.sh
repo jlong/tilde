@@ -54,6 +54,14 @@ echo ""
 
 
 #######################
+echo "Screen"
+#######################
+
+ln -sfv $SCRIPTPATH/.screenrc $HOME/.screenrc
+
+echo ""
+
+#######################
 echo "IRB"
 #######################
 

@@ -1,8 +1,9 @@
 # Console
 alias profile="vi ~/.bash_profile"
-alias ls="ls -p -G -h"
+alias ls="ls -p -h --color"
 alias mkpath="mkdir -p"
 alias ss="script/server"
+alias cls=clear
 alias flushdns="dscacheutil -flushcache"
 
 # PostgreSQL
@@ -27,9 +28,6 @@ alias gems="mate /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/
 alias gsm="git submodule init && git submodule update"
 alias git=hub
 alias changelog="git log --no-merges --date=short --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd)%Creset'"
-
-# SSH
-alias sshrecursive1="ssh -p 42832 173.45.235.36"
 
 # WGET
 alias wget="curl -O"
