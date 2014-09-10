@@ -1,10 +1,16 @@
+platform=`uname`
+
 # Console
 alias profile="vi ~/.bash_profile"
-alias ls="ls -p -h --color"
 alias mkpath="mkdir -p"
 alias ss="script/server"
 alias cls=clear
 alias flushdns="dscacheutil -flushcache"
+if [[ "$platform" == 'Darwin' ]]; then
+  alias ls="ls -p -h -G"
+else
+  alias ls="ls -p -h --color"
+fi
 
 # PostgreSQL
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
