@@ -8,3 +8,7 @@ caption always "%{= kw} %= %-w%{= Wk} %n %t %{= kw}%+w %= %C%a"
 
 # Make sure aliases work
 shell -$SHELL
+
+# Key bindings
+bind h prev
+bind l next
