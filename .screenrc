@@ -9,6 +9,9 @@ caption always "%{= kw} %= %-w%{= Wk} %n %t %{= kw}%+w %= %C%a"
 # Make sure aliases work
 shell -$SHELL
 
+# Scrollback
+defscrollback 10000
+
 # Key bindings
 bind h prev
 bind l next
