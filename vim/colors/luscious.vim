@@ -2,8 +2,8 @@
 " A few modifications to Lucius by @johnwlong
 "
 
-" Start with Lucius
-runtime colors/lucius.vim
+" Start with the old version of Lucius (the new one has issues)
+runtime colors/lucius-old.vim
 
 " Rename as "luscious"
 let g:colors_name = "luscious"

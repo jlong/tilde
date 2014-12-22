@@ -45,7 +45,6 @@ Plugin 'tpope/vim-rails'                                    " Support for Rails 
 Bundle 'christoomey/vim-tmux-navigator'
 
 " Misc plugins
-Plugin 'flazz/vim-colorschemes'                             " A zillion Vim color schemes
 Plugin 'tpope/vim-git'                                      " Basic git support
 Plugin 'tpope/vim-fugitive'                                 " Tim Pope's amazing git plugin
 Plugin 'bronson/vim-trailing-whitespace'                    " Whitespace plugin
