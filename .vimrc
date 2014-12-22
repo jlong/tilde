@@ -17,16 +17,12 @@ Plugin 'gcmt/wildfire.vim'                                  " Smart selection of
 " IDE-like features
 Plugin 'scrooloose/nerdtree'                                " File tree plugin for Vim
 Plugin 'kien/ctrlp.vim'                                     " Easily open files
-" plugin 'shougo/unite.vim'                                   " easily open all the things
-" plugin 'shougo/neomru.vim'                                  " mru for unite
-" plugin 'shougo/vimproc.vim'                                 " needed for some parts of unite
-" Plugin 'pekepeke/vim-unite-repo-files'                      " A Unite source for Git repository files
 Plugin 'rking/ag.vim'                                       " Simple Vim interface to Ag
 Plugin 'bling/vim-airline'                                  " Pretty status line
 Plugin 'mkitt/tabline.vim'                                  " Easier control of tabline
 Plugin 'airblade/vim-gitgutter'                             " Keep track of additions, subtractions, and modifications
 Plugin 'vim-scripts/gitignore'                              " Sync wildignore with .gitignore
-Plugin 'Raimondi/delimitMate'                               " Automatically close brackets and quotes like Textmate
+" Plugin 'Raimondi/delimitMate'                               " Automatically close brackets and quotes like Textmate
 Plugin 'tpope/vim-repeat'                                   " Interface for plugins to extend '.'
 Plugin 'tpope/vim-commentary'                               " tpope's comment plugin
 Plugin 'tpope/vim-abolish'                                  " Abolish
@@ -36,7 +32,6 @@ Plugin 'tpope/vim-vinegar'                                  " Salad dressing for
 Plugin 'junegunn/goyo.vim'                                  " Distraction-free writing for Vim
 Plugin 'scrooloose/syntastic'                               " Syntax checking
 
-
 " Language support
 Plugin 'jlong/sass-convert.vim'                             " Easily convert between Sass syntaxes
 Plugin 'plasticboy/vim-markdown'                            " Markdown syntax support
@@ -45,6 +40,9 @@ Plugin 'juvenn/mustache.vim'                                " Mustache syntax su
 Plugin 'tpope/vim-haml'                                     " Support for Haml, Sass, & SCSS
 Plugin 'vim-ruby/vim-ruby'                                  " Better support for Ruby
 Plugin 'tpope/vim-rails'                                    " Support for Rails applications
+
+" Tmux
+Bundle 'christoomey/vim-tmux-navigator'
 
 " Misc plugins
 Plugin 'flazz/vim-colorschemes'                             " A zillion Vim color schemes
@@ -293,33 +291,16 @@ set wildignore+=public/assets/**,build/**,vendor/plugins/**,vendor/linked_gems/*
 let g:ctrlp_max_height=20
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard']
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v(\.git|\.yardoc|log|tmp)$',
+  \ 'dir':  '\v(\.git|\.yardoc|log|tmp|build)$',
   \ 'file': '\v\.(so|dat|DS_Store|png|gif|jpg|jpeg)$'
   \ }
-
-" Unite
-" call unite#filters#matcher_default#use(['matcher_fuzzy'])
-" call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', '\.\(png\|gif\|jpg\|jpeg\|ico\|tif\|tiff\|swf\|pdf\|xls\|xlsx\|po\|pot\|woff\|ttf\|eot\)$')
-" let g:unite_source_repo_files_rule = { 'git' : { 'located' : '.git', 'command' : 'git', 'exec' : '%c ls-files --cached --others --exclude-standard', } }
-" let g:unite_source_repo_files_max_candidates = 40
-" let g:unite_repo_files_ignore_pattern = '\v\.(so|dat|ds_store|png|gif|jpg|jpeg)$'
-" nnoremap <leader>f :unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
-" nnoremap <leader>c :unitewithbufferdir -no-split -short-source-names -buffer-name=files -start-insert file:!<cr>
-" nnoremap <leader>g :unite -no-split -buffer-name=files -start-insert repo_files:!<cr>
-" nnoremap <leader>m :unite -no-split -buffer-name=mru -start-insert file_mru<cr>
-" nnoremap <leader>b :unite -no-split -buffer-name=buffer -start-insert buffer<cr>
-" autocmd filetype unite call s:unite_settings()
-" function! s:unite_settings()
-"   " enable navigation with control-j and control-k in insert mode
-"   imap <buffer> <c-j>   <plug>(unite_select_next_line)
-"   imap <buffer> <c-k>   <plug>(unite_select_previous_line)
-" endfunction
 
 " NERDtree
 let NERDTreeWinSize=31
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 let NERDTreeHijackNetrw=0
+let NERDTreeIgnore=['tmp$[[dir]]', 'build$[[dir]]']
 map <leader>nt :NERDTree<space>
 map <leader>nb :NERDTreeFromBookmark<space>
 map <leader>d :NERDTreeToggle

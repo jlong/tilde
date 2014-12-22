@@ -61,6 +61,16 @@ ln -sfv $SCRIPTPATH/.screenrc $HOME/.screenrc
 
 echo ""
 
+
+#######################
+echo "tmux"
+#######################
+
+ln -sfv $SCRIPTPATH/.tmux.conf $HOME/.tmux.conf
+brew install reattach-to-user-namespace
+
+echo ""
+
 #######################
 echo "IRB"
 #######################

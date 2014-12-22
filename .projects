@@ -67,4 +67,12 @@ uv ()
 {
   project uservoice $1
 }
-complete -W "application prototype mockups artwork wireframes website" uv
+complete -W "application prototype mockups artwork wireframes website deployment" uv
+
+# UserVoice Vagrant
+v ()
+{
+  cd ~/Workspaces/uservoice/deployment
+  vagrant $1 $2 $3 $4 $5 
+  cd -
+}

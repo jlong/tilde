@@ -19,6 +19,12 @@
   changelog = log --no-merges --date=short --pretty=format:'%Cgreen%cd%Creset %Cred%h%Creset -%C(yellow)%d%Creset %cN: %s'
   mine = log --author=john
   delete = "!f() { git branch -d $1 && git push origin :$1; }; f"
+  ls = !ls -G
+  set-upstream = "!f() { branch=$(git st | head -1 | awk '{ print $4 }'); git branch --set-upstream-to=origin/$branch $branch; }; f"
+  cls = !clear
+  clear = !clear
+  hub = !hub
+  git = !git
 [merge]
   summary = true
   tool = opendiff

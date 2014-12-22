@@ -35,6 +35,9 @@ alias gsm="git submodule init && git submodule update"
 alias git=hub
 alias changelog="git log --no-merges --date=short --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd)%Creset'"
 
+# Tmux
+alias tmux="TERM=xterm-256color tmux"
+
 # WGET
 alias wget="curl -O"
 
