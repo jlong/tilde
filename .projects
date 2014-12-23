@@ -65,20 +65,7 @@ complete -W "application instance registry prototype mockups artwork website" ra
 # UserVoice
 uv ()
 {
-  if [[ $1 && "$1" -eq "tmux" ]]
-  then
-    cd ~/Workspaces/uservoice/deployment
-    tmux new-session -s "uservoice" -n "bash" -d
-    tmux new-window -t "uservoice:2" -n "git"
-    tmux new-window -t "uservoice:3" -n "vim"
-    tmux new-window -t "uservoice:4" -n "logs"
-    tmux new-window -t "uservoice:5" -n "gulp"
-    cd -
-    tmux select-window -t "uservoice:1"
-    tmux -2 attach-session -t "uservoice"
-  else
-    project uservoice $1
-  fi
+  project uservoice $1
 }
 complete -W "application prototype mockups artwork wireframes website deployment" uv
 
