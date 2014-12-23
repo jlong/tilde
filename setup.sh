@@ -61,17 +61,23 @@ ln -sfv $SCRIPTPATH/.screenrc $HOME/.screenrc
 
 echo ""
 
+TMUX=false
+if echo $@ | grep '+tmux' > /dev/null; then
+  TMUX=true
 
-#######################
-echo "tmux"
-#######################
+  #######################
+  echo "tmux"
+  #######################
 
-ln -sfv $SCRIPTPATH/.tmux.conf $HOME/.tmux.conf
-ln -sv $SCRIPTPATH/tmuxinator/ $HOME/.tmuxinator
-brew install reattach-to-user-namespace
-gem install tmuxinator
+  ln -sfv $SCRIPTPATH/.tmux.conf $HOME/.tmux.conf
+  ln -sv $SCRIPTPATH/tmuxinator $HOME/.tmuxinator
+  brew install reattach-to-user-namespace
+  gem install tmuxinator
+  ln -sfv $SCRIPTPATH/.tmux-completion $HOME/.tmux-completion
+  ln -sfv $SCRIPTPATH/.tmuxinator-completion $HOME/.tmuxinator-completion
+  echo ""
+fi
 
-echo ""
 
 #######################
 echo "IRB"
@@ -99,17 +105,17 @@ ln -sfv $SCRIPTPATH/.exports $HOME/.exports
 ln -sfv $SCRIPTPATH/.aliases $HOME/.aliases
 ln -sfv $SCRIPTPATH/.projects $HOME/.projects
 ln -sfv $SCRIPTPATH/.git-completion $HOME/.git-completion
-ln -sfv $SCRIPTPATH/.tmux-completion $HOME/.tmux-completion
-ln -sfv $SCRIPTPATH/.tmuxinator-completion $HOME/.tmuxinator-completion
 
 echo ""
 echo "Files linked. Add the following lines to your .bash_profile:"
 echo ""
 echo "  source ~/.exports"
 echo "  source ~/.aliases"
-echo "  source ~/.git-completion"
-echo "  source ~/.tmux-completion"
-echo "  source ~/.tmuxinator-completion"
 echo "  source ~/.projects"
+echo "  source ~/.git-completion"
+if $TMUX; then
+  echo "  source ~/.tmux-completion"
+  echo "  source ~/.tmuxinator-completion"
+fi
 echo "  complete -C path/to/tilde/lib/rake-complete.rb -o default rake"
 echo ""
