@@ -1,0 +1,7 @@
+name: ox
+root: ~/Workspaces/oxygen/website
+
+windows:
+  - bash:
+  - vim: vim
+  - server: gulp
