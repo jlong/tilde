@@ -32,7 +32,7 @@ alias gems="mate /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/
 
 # Git
 alias gsm="git submodule init && git submodule update"
-alias git=hub
+#alias git=hub
 alias changelog="git log --no-merges --date=short --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd)%Creset'"
 
 # Tmux
