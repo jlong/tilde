@@ -79,7 +79,6 @@ do
   esac
 done
 
-
 if [ "$git" = true ]; then
   #######################
   echo "GIT"
@@ -189,6 +188,15 @@ if [ "$jshint" = true ]; then
   echo ""
 fi
 
+add_to_profile() {
+  local line=$1
+  local profile=$HOME/.bash_profile
+  if ! grep -q "$line" $profile; then
+    echo "  $line"
+    eval $(echo "$line" | tee -a $profile)
+  fi
+}
+
 if [ "$bash" = true ]; then
   #######################
   echo "Bash Profile"
@@ -202,26 +210,26 @@ fi
 
 if [ "$profile" = true ]; then
   echo ""
-  echo "Add the following lines to your .bash_profile:"
+  echo "Adding the following lines to your .bash_profile:"
   echo ""
 
   if [ "$bash" = true ]; then
-    echo "  source ~/.exports"
-    echo "  source ~/.aliases"
-    echo "  source ~/.projects"
+    add_to_profile 'source ~/.exports'
+    add_to_profile 'source ~/.aliases'
+    add_to_profile 'source ~/.projects'
   fi
 
   if [ "$git" = true ]; then
-    echo "  source ~/.git-completion"
+    add_to_profile 'source ~/.git-completion'
   fi
 
   if [ "$tmux" = true ]; then
-    echo "  source ~/.tmux-completion"
-    echo "  source ~/.tmuxinator-completion"
+    add_to_profile 'source ~/.tmux-completion'
+    add_to_profile 'source ~/.tmuxinator-completion'
   fi
 
   if [ "$rake" = true ]; then
-    echo "  complete -C path/to/tilde/lib/rake-complete.rb -o default rake"
+    add_to_profile 'complete -C path/to/tilde/lib/rake-complete.rb -o default rake'
   fi
 fi
 
