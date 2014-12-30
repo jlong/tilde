@@ -191,6 +191,7 @@ fi
 add_to_profile() {
   local line=$1
   local profile=$HOME/.bash_profile
+  touch $profile
   if ! grep -q "$line" $profile; then
     echo "  $line"
     eval $(echo "$line" | tee -a $profile)
