@@ -1,5 +1,8 @@
 platform=`uname`
 
+# Tilde
+alias tilde="cd ~/Workspaces/tilde"
+
 # Console
 alias profile="vi ~/.bash_profile"
 alias mkpath="mkdir -p"
