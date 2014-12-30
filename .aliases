@@ -50,14 +50,3 @@ alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 
 # Work log
 alias lw="logwork"
-
-# UserVoice
-alias babayaga-connect="ssh -L 9091:lbq:9090 -p 41145 dev@uvstaging08.com"
-alias metroid-restart="sudo service metroid restart"
-alias metroid-update="cd ~/go/src/metroid && git pull && GOPATH=/home/dev/go /home/dev/go/bin/godep go build -o /home/dev/bin/metroid metroid/metroid && cd - && metroid-restart"
-alias redis-restart="sudo service redis-server restart"
-alias memcache-restart="sudo service memcached restart"
-alias unicorn-restart="sudo service unicorn restart"
-alias rails-restart="unicorn-restart"
-alias app-restart="metroid-restart && rails-restart && redis-restart && memcache-restart"
-alias app-logs="sudo tail -f /home/dev/uservoice/log/development.log -f /var/log/upstart/unicorn.log"
