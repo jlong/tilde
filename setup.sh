@@ -2,6 +2,7 @@
 
 SCRIPT=$(cd `dirname "${BASH_SOURCE[0]}"` && pwd)/`basename "${BASH_SOURCE[0]}"`
 SCRIPTPATH=`dirname $SCRIPT`
+PROFILE=$HOME/.bashrc
 
 HELP="
 Usage:
@@ -14,7 +15,11 @@ Description:
   included, only wire in specific sections.
 
 Options:
-  Specifc options can be turned on or off with a +/- prefix.
+  --profile path, -p path
+    The profile file to append to. (Default: $PROFILE)
+
+Components:
+  Specific components can be turned on or off with a +/- prefix.
 
   vim      Vim config and plugins
   git      Git config
@@ -24,7 +29,8 @@ Options:
   irb      IRB completion and other goodies
   rake     Rake completion
   jshint   JSHint config
-  bash  Bash extras
+  bash     Bash extras
+
 "
 case $# in 0) echo "$HELP"; exit 0;; esac
 
@@ -33,8 +39,12 @@ while true
 do
   case $# in 0) break;; esac
   case $1 in
-    all)
+    --profile|-p)
       shift;
+      PROFILE=$1
+      ;;
+
+    all)
       vim=true;
       git=true;
       screen=true;
@@ -44,45 +54,48 @@ do
       rake=true;
       jshint=true;
       bash=true;
-    ;;
+      ;;
 
-    +vim) shift; vim=true;;
-    -vim) shift; vim=false;;
+    +vim) vim=true;;
+    -vim) vim=false;;
 
-    +git) shift; git=true;;
-    -git) shift; git=false;;
+    +git) git=true;;
+    -git) git=false;;
 
-    +screen) shift; screen=true;;
-    -screen) shift; screen=false;;
+    +screen) screen=true;;
+    -screen) screen=false;;
 
-    +tmux) shift; tmux=true;;
-    -tmux) shift; tmux=false;;
+    +tmux) tmux=true;;
+    -tmux) tmux=false;;
 
-    +ack) shift; ack=true;;
-    -ack) shift; ack=false;;
+    +ack) ack=true;;
+    -ack) ack=false;;
 
-    +irb) shift; irb=true;;
-    -irb) shift; irb=false;;
+    +irb) irb=true;;
+    -irb) irb=false;;
 
-    +rake) shift; rake=true;;
-    -rake) shift; rake=false;;
+    +rake) rake=true;;
+    -rake) rake=false;;
 
-    +jshint) shift; jshint=true;;
-    -jshint) shift; jshint=false;;
+    +jshint) jshint=true;;
+    -jshint) jshint=false;;
 
-    +bash) shift; bash=true;;
-    -bash) shift; bash=false;;
+    +bash) bash=true;;
+    -bash) bash=false;;
 
     help) echo "$HELP"; exit 0 ;;
 
     *) echo; echo "Invalid option $1."; echo "$HELP"; exit 2 ;;
   esac
+  shift
 done
 
 if [ "$git" = true ]; then
   #######################
   echo "GIT"
   #######################
+
+  update_profile=true
 
   # A couple of things for Git that we want to be user global. Note that we
   # should NOT link .git and .gitmodules as these belong to this project and are
@@ -92,7 +105,6 @@ if [ "$git" = true ]; then
   ln -sfv $SCRIPTPATH/.gitusers $HOME/.gitusers
 
   ln -sfv $SCRIPTPATH/.git-completion $HOME/.git-completion
-  profile=true
 
   echo ""
 fi
@@ -100,7 +112,7 @@ fi
 if [ "$vim" = true ]; then
   #######################
   echo "VIM"
-  #######################
+
   ln -sv $SCRIPTPATH/vim/ $HOME/.vim
   ln -sfv $SCRIPTPATH/.vimrc $HOME/.vimrc
   ln -sfv $SCRIPTPATH/.gvimrc $HOME/.gvimrc
@@ -132,6 +144,8 @@ if [ "$tmux" = true ]; then
   echo "tmux"
   #######################
 
+  update_profile=true
+
   brew install reattach-to-user-namespace
   gem install tmuxinator
 
@@ -140,7 +154,6 @@ if [ "$tmux" = true ]; then
 
   ln -sfv $SCRIPTPATH/.tmux-completion $HOME/.tmux-completion
   ln -sfv $SCRIPTPATH/.tmuxinator-completion $HOME/.tmuxinator-completion
-  profile=true
 
   echo ""
 fi
@@ -170,9 +183,10 @@ if [ "$rake" = true ]; then
   echo "Rake"
   #######################
 
+  update_profile=true
+
   mkdir $HOME/lib
   ln -sfv $SCRIPTPATH/lib/rake-complete.rb $HOME/lib/rake-complete.rb
-  profile=true
 
   echo ""
 fi
@@ -190,11 +204,10 @@ fi
 
 add_to_profile() {
   local line=$1
-  local profile=$HOME/.bash_profile
-  touch $profile
-  if ! grep -q "$line" $profile; then
+  touch $PROFILE
+  if ! grep -q "$line" $PROFILE; then
     echo "  $line"
-    eval $(echo "$line" | tee -a $profile)
+    eval $(echo "$line" | tee -a $PROFILE)
   fi
 }
 
@@ -203,15 +216,16 @@ if [ "$bash" = true ]; then
   echo "Bash Profile"
   #######################
 
+  update_profile=true
+
   ln -sfv $SCRIPTPATH/.exports $HOME/.exports
   ln -sfv $SCRIPTPATH/.aliases $HOME/.aliases
   ln -sfv $SCRIPTPATH/.projects $HOME/.projects
-  profile=true
 fi
 
-if [ "$profile" = true ]; then
+if [ "$update_profile" = true ]; then
   echo ""
-  echo "Adding the following lines to your .bash_profile:"
+  echo "Adding the following lines to your profile ($PROFILE):"
   echo ""
 
   if [ "$bash" = true ]; then
