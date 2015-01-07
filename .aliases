@@ -49,7 +49,7 @@ alias tmux="TERM=xterm-256color tmux"
 alias wget="curl -O"
 
 # Bundler
-alias be="b exec"
+alias be="bundle exec"
 
 # Work log
 alias lw="logwork"
