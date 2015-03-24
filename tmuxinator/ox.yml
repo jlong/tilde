@@ -4,4 +4,4 @@ root: ~/Workspaces/oxygen/website
 windows:
   - bash:
   - vim: vim
-  - server: gulp
+  - server: gulp server

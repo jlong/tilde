@@ -1,0 +1,18 @@
+name: serve
+root: ~/Workspaces/serve
+
+windows:
+  - bash:
+      layout: even-horizontal
+      panes:
+        - bash:
+          - cls
+        - git:
+          - gitsh
+          - cls
+          - st
+  - vim:
+    - vim
+  - server:
+    - serve website 
+
