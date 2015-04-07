@@ -26,7 +26,7 @@ if [[ "$platform" == 'Darwin' ]]; then
   alias coda="open -a '/Applications/Coda.app'"
   alias tm="mate"
   alias ios-simulator="open -a '/Applications/Xcode.app/Contents/Applications/iPhone Simulator.app'" 
-  alias refresh-dev-box='v destroy -f dev && v up dev && v ssh dev -c "bash -c /vagrant/files/dev-box-setup.sh" && v ssh dev'
+  alias refresh-dev-box='v destroy -f dev && v up dev && v ssh dev -c "bash -c /vagrant/files/home-dirs/john/bin/setup-dev-box.sh" && v ssh dev'
 
   # Git
   alias git=hub
