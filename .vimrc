@@ -6,9 +6,10 @@ set nocompatible                                            " We aren't interest
 
 " Initialize Vundle
 filetype off                                                " Required for Vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Plugin 'gmarik/vundle'                                      " Let Vundle manage Vundle (required)
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'                                  " Let Vundle manage Vundle (required)
 
 " Text manipulation and navigation
 Plugin 'goldfeld/vim-seek'                                  " Quickly navigate with s and S
@@ -54,6 +55,8 @@ Plugin 'tpope/vim-characterize'                             " Reveal character c
 Plugin 'xolox/vim-notes'                                    " Note taking plugin
 Plugin 'xolox/vim-misc'                                     " Required by notes
 " runtime ftplugin/man.vim                                    " :Man plugin
+
+call vundle#end()
 
 
 " ====================
