@@ -24,6 +24,7 @@
   cls = !clear
   clear = !clear
   hub = !hub
+  pull-request = !hub pull-request
   git = !git
 [merge]
   summary = true

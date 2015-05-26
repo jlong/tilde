@@ -5,7 +5,8 @@ root: ~/Workspaces/uservoice/application
 
 # Runs before everything. Use it to start daemons etc.
 pre:
-  - v up dev
+  - cd ~/Workspaces/uservoice/deployment
+  - vagrant up dev
 
 windows:
   - bash:

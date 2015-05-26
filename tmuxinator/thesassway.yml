@@ -1,0 +1,19 @@
+# The Sass Way
+name: The Sass Way
+root: ~/Workspaces/thesassway
+
+windows:
+  - bash:
+      layout: even-horizontal
+      panes:
+        - bash:
+          - cls
+        - git:
+          - gitsh
+          - cls
+          - st
+  - vim:
+    - vi
+  - server:
+    - bundle exec foreman start
+

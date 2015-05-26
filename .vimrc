@@ -19,11 +19,10 @@ Plugin 'gcmt/wildfire.vim'                                  " Smart selection of
 Plugin 'scrooloose/nerdtree'                                " File tree plugin for Vim
 Plugin 'kien/ctrlp.vim'                                     " Easily open files
 Plugin 'rking/ag.vim'                                       " Simple Vim interface to Ag
-Plugin 'bling/vim-airline'                                  " Pretty status line
+" Plugin 'bling/vim-airline'                                  " Pretty status line
 Plugin 'mkitt/tabline.vim'                                  " Easier control of tabline
 Plugin 'airblade/vim-gitgutter'                             " Keep track of additions, subtractions, and modifications
 Plugin 'vim-scripts/gitignore'                              " Sync wildignore with .gitignore
-" Plugin 'Raimondi/delimitMate'                               " Automatically close brackets and quotes like Textmate
 Plugin 'tpope/vim-repeat'                                   " Interface for plugins to extend '.'
 Plugin 'tpope/vim-commentary'                               " tpope's comment plugin
 Plugin 'tpope/vim-abolish'                                  " Abolish
@@ -45,15 +44,15 @@ Plugin 'tpope/vim-rails'                                    " Support for Rails 
 " Tmux
 Bundle 'christoomey/vim-tmux-navigator'
 
+" Themes
+Plugin 'NLKNguyen/papercolor-theme'
+
 " Misc plugins
 Plugin 'tpope/vim-git'                                      " Basic git support
 Plugin 'tpope/vim-fugitive'                                 " Tim Pope's amazing git plugin
 Plugin 'bronson/vim-trailing-whitespace'                    " Whitespace plugin
 Plugin 'guns/xterm-color-table.vim'                         " Show color table for adjusting Vim themes
-Plugin 'henrik/vim-reveal-in-finder'                        " Reveal in finder
-Plugin 'tpope/vim-characterize'                             " Reveal character codes with <C+a>
-Plugin 'xolox/vim-notes'                                    " Note taking plugin
-Plugin 'xolox/vim-misc'                                     " Required by notes
+
 " runtime ftplugin/man.vim                                    " :Man plugin
 
 call vundle#end()
@@ -99,7 +98,7 @@ set linebreak                                              " Wrap on words
 " Syntax highlighting
 syntax enable                                              " Enable syntax higlighting
 set t_Co=256                                               " Turn 256 color support on
-colorscheme luscious                                       " My custom theme
+colorscheme PaperColor
 
 " User interface
 set visualbell
@@ -250,10 +249,6 @@ nmap <S-Up> <C-W>+<C-W>+
 nmap <S-Down> <C-W>-<C-W>-
 nmap <C--> <C-W>_
 nmap <C-_> <C-W>_
-
-" open help in a tab
-cabbrev help tab help
-cabbrev h tab h
 
 " split explore hotkey
 nmap <F2> <leader>d<CR>
