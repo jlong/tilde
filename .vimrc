@@ -45,7 +45,7 @@ Plugin 'tpope/vim-rails'                                    " Support for Rails 
 Bundle 'christoomey/vim-tmux-navigator'
 
 " Themes
-Plugin 'NLKNguyen/papercolor-theme'
+" Plugin 'NLKNguyen/papercolor-theme'
 
 " Misc plugins
 Plugin 'tpope/vim-git'                                      " Basic git support
@@ -98,7 +98,8 @@ set linebreak                                              " Wrap on words
 " Syntax highlighting
 syntax enable                                              " Enable syntax higlighting
 set t_Co=256                                               " Turn 256 color support on
-colorscheme PaperColor
+set background=light
+colorscheme luscious
 
 " User interface
 set visualbell
@@ -221,6 +222,17 @@ function! WipeoutInactiveBuffers()
 endfunction
 command Wipeout call WipeoutInactiveBuffers()
 
+func GitGrep(...)
+  let save = &grepprg
+  set grepprg=git\ grep\ -n\ $*
+  let s = 'grep'
+  for i in a:000
+    let s = s . ' ' . i
+  endfor
+  exe s
+  let &grepprg = save
+endfun
+command -nargs=? G silent call GitGrep(<f-args>) | cw | redraw!
 
 " ==================
 " Mappings
