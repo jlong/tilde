@@ -1,6 +1,5 @@
-# CSS Spinners
-name: css-spinners
-root: ~/Workspaces/css-spinners
+name: portfolio
+root: ~/Workspaces/portfolio/website
 
 windows:
   - bash:
@@ -11,8 +10,5 @@ windows:
         - git:
           - gitsh
           - cls
-          - st
-  - vim:
-    - vi README.md
-  - server:
-    - gulp watch
+  - vim: vim
+  - server: gulp server

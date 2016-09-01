@@ -78,7 +78,5 @@ complete -W "application prototype mockups artwork wireframes website deployment
 # UserVoice Vagrant
 v ()
 {
-  cd ~/Workspaces/uservoice/deployment
-  vagrant $1 $2 $3 $4 $5 
-  cd -
+  VAGRANT_CWD=~/Workspaces/uservoice/deployment vagrant $@ 
 }

@@ -1,6 +1,29 @@
 [user]
   name = John W. Long
   email = john@uservoice.com
+[core]
+  editor = vim --nofork
+  legacyheaders = false
+  excludesfile = /Users/jlong/.gitignore
+[push]
+  default = tracking
+[pull]
+	rebase = true
+[merge]
+  summary = true
+  tool = opendiff
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[repack]
+  usedeltabaseoffset = true
+[apply]
+  whitespace = nowarn
+[github]
+  user = jlong
+[svn]
+  authorsfile = /Users/jlong/.gitusers
 [color]
   ui = auto
   status = auto
@@ -16,32 +39,14 @@
   df = diff
   lg = log
   up = pull
+  vim = "!f() { git st -s | awk '{ print $2 }' | xargs vi -p; }; f"
   changelog = log --no-merges --date=short --pretty=format:'%Cgreen%cd%Creset %Cred%h%Creset -%C(yellow)%d%Creset %cN: %s'
   mine = log --author=john
   delete = "!f() { git branch -d $1 && git push origin :$1; }; f"
   ls = !ls -G
-  set-upstream = "!f() { branch=$(git st | head -1 | awk '{ print $4 }'); git branch --set-upstream-to=origin/$branch $branch; }; f"
+  push-upstream = "!f() { branch=$(git st | head -1 | awk '{ print $3 }'); git push --set-upstream origin $branch; }; f"
   cls = !clear
   clear = !clear
   hub = !hub
   pull-request = !hub pull-request
   git = !git
-[merge]
-  summary = true
-  tool = opendiff
-[core]
-  editor = vim --nofork
-  legacyheaders = false
-  excludesfile = /Users/jlong/.gitignore
-[push]
-  default = current
-[repack]
-  usedeltabaseoffset = true
-[apply]
-  whitespace = nowarn
-[github]
-  user = jlong
-[svn]
-  authorsfile = /Users/jlong/.gitusers
-[push]
-  default = tracking

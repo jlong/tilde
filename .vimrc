@@ -118,6 +118,7 @@ set fileformats=unix,mac,dos
 set showmatch                                              " Show matching brackets
 set nojoinspaces                                           " Don't join lines with 2 spaces after a period
 set scrolloff=2                                            " Scroll up or down with at least 2 lines on either side of the cursor
+set spelllang=en_us                                        " Spelling!
 
 
 " Status line
@@ -254,6 +255,9 @@ nnoremap <leader>p :put *<cr>`[v`]=
 " nnoremap <d-j> <c-w>j<c-w>_
 " nnoremap <d-k> <c-w>k<c-w>_
 
+" html template
+nmap ,html _i<!doctype html><CR><html><CR><head><CR><TAB><meta charset="UTF-8"><CR><title></title><CR><link rel="stylesheet" href=""><CR><BS></head><CR><body><CR><CR><TAB><script src=""></script><CR><BS></body><CR></html><ESC>kkkkkkklla
+
 " resize windows
 nmap <S-Left> <C-W><<C-W><
 nmap <S-Right> <C-W>><C-W>>
@@ -282,6 +286,9 @@ map <F6> :tabnew<CR><C-L>:e ~/.vimrc<CR>
 " Notes
 let g:notes_directories = ['~/Dropbox/Notes']
 map <F7> :Note master<CR>
+
+" toggle spelling
+nmap <F8> :set spell!<CR>
 
 " Syntastic
 command! -nargs=* -bar -bang -count=0 -complete=dir E Explore <args> "map E: back to Explore and prevent ambiguity with syntastics :Error

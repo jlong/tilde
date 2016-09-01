@@ -7,6 +7,7 @@ root: ~/Workspaces/uservoice/application
 pre:
   - cd ~/Workspaces/uservoice/deployment
   - vagrant up dev
+  - cd -
 
 windows:
   - bash:
@@ -31,7 +32,6 @@ windows:
     - cls
     - app-logs
   - gulp:
-    - v ssh dev
     - uv
     - cls
-    - gulp templates && gulp watch
+    - gulp build && gulp watch

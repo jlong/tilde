@@ -1,6 +1,6 @@
-# CSS Spinners
-name: css-spinners
-root: ~/Workspaces/css-spinners
+# The Sass Way
+name: API Console
+root: ~/Workspaces/uservoice/api-console
 
 windows:
   - bash:
@@ -13,6 +13,6 @@ windows:
           - cls
           - st
   - vim:
-    - vi README.md
+    - vi
   - server:
-    - gulp watch
+    - gulp serve

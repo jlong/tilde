@@ -3,5 +3,12 @@ root: ~/Workspaces/oxygen/website
 
 windows:
   - bash:
+      layout: even-horizontal
+      panes:
+        - bash:
+          - cls
+        - git:
+          - gitsh
+          - cls
   - vim: vim
   - server: gulp server

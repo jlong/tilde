@@ -1,6 +1,6 @@
-# CSS Spinners
-name: css-spinners
-root: ~/Workspaces/css-spinners
+# The Sass Way
+name: Office Chess
+root: ~/Workspaces/office-chess
 
 windows:
   - bash:
@@ -13,6 +13,6 @@ windows:
           - cls
           - st
   - vim:
-    - vi README.md
+    - vi
   - server:
-    - gulp watch
+    - meteor
