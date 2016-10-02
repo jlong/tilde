@@ -45,5 +45,5 @@ hi Special       guifg=#efaf7f    gui=none
 hi Special       ctermfg=216      cterm=none
 
 hi SpellCap      ctermfg=fg       ctermbg=none
-hi SpellCap      guifg=fg         guibg=none
+hi SpellCap      guifg=fg         gui=none
 

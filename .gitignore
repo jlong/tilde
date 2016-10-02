@@ -24,3 +24,5 @@ build/
 xcuserdata
 
 vim/bundle/*
+vim/autoload/*
+vim/plugged/*
