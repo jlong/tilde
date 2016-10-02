@@ -1,61 +1,58 @@
-set nocompatible                                            " We aren't interested in backward compatability with vi, set before all other
+set nocompatible                                          " We aren't interested in backward compatability with vi, set before all other
 
 " ====================
 " Plugins
 " ====================
 
-" Initialize Vundle
-filetype off                                                " Required for Vundle
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'                                  " Let Vundle manage Vundle (required)
+call plug#begin('~/.vim/plugged')
 
 " Text manipulation and navigation
-Plugin 'goldfeld/vim-seek'                                  " Quickly navigate with s and S
-Plugin 'gcmt/wildfire.vim'                                  " Smart selection of closest text object with <ENTER>
+" Plug 'goldfeld/vim-seek'                                " Quickly navigate with s and S
+Plug 'gcmt/wildfire.vim'                                  " Smart selection of closest text object with <ENTER>
 
 " IDE-like features
-Plugin 'scrooloose/nerdtree'                                " File tree plugin for Vim
-Plugin 'kien/ctrlp.vim'                                     " Easily open files
-Plugin 'rking/ag.vim'                                       " Simple Vim interface to Ag
-" Plugin 'bling/vim-airline'                                  " Pretty status line
-Plugin 'mkitt/tabline.vim'                                  " Easier control of tabline
-Plugin 'airblade/vim-gitgutter'                             " Keep track of additions, subtractions, and modifications
-Plugin 'vim-scripts/gitignore'                              " Sync wildignore with .gitignore
-Plugin 'tpope/vim-repeat'                                   " Interface for plugins to extend '.'
-Plugin 'tpope/vim-commentary'                               " tpope's comment plugin
-Plugin 'tpope/vim-abolish'                                  " Abolish
-Plugin 'tpope/vim-surround'                                 " Helps manage quotes
-Plugin 'tpope/vim-endwise'                                  " Helps to end certain structures automatically
-Plugin 'tpope/vim-vinegar'                                  " Salad dressing for netrw
-Plugin 'junegunn/goyo.vim'                                  " Distraction-free writing for Vim
-Plugin 'scrooloose/syntastic'                               " Syntax checking
+" Plug 'scrooloose/nerdtree'                              " File tree plugin for Vim
+Plug 'kien/ctrlp.vim'                                     " Easily open files
+" Plug 'rking/ag.vim'                                     " Simple Vim interface to Ag
+" Plug 'bling/vim-airline'                                " Pretty status line
+Plug 'mkitt/tabline.vim'                                  " Easier control of tabline
+Plug 'airblade/vim-gitgutter'                             " Keep track of additions, subtractions, and modifications
+Plug 'vim-scripts/gitignore'                              " Sync wildignore with .gitignore
+" Plug 'tpope/vim-repeat'                                 " Interface for plugins to extend '.'
+Plug 'tpope/vim-commentary'                               " tpope's comment plugin
+" Plug 'tpope/vim-abolish'                                " Abolish
+" Plug 'tpope/vim-surround'                               " Helps manage quotes
+Plug 'tpope/vim-endwise'                                  " Helps to end certain structures automatically
+Plug 'tpope/vim-vinegar'                                  " Salad dressing for netrw
+Plug 'junegunn/goyo.vim'                                  " Distraction-free writing for Vim
+" Plug 'scrooloose/syntastic'                             " Syntax checking
+Plug 'neomake/neomake'
 
 " Language support
-Plugin 'jlong/sass-convert.vim'                             " Easily convert between Sass syntaxes
-Plugin 'plasticboy/vim-markdown'                            " Markdown syntax support
-Plugin 'pangloss/vim-javascript'                            " Better support for JavaScript syntax
-Plugin 'juvenn/mustache.vim'                                " Mustache syntax support
-Plugin 'tpope/vim-haml'                                     " Support for Haml, Sass, & SCSS
-Plugin 'vim-ruby/vim-ruby'                                  " Better support for Ruby
-Plugin 'tpope/vim-rails'                                    " Support for Rails applications
+Plug 'jlong/sass-convert.vim'                             " Easily convert between Sass syntaxes
+Plug 'plasticboy/vim-markdown'                            " Markdown syntax support
+Plug 'pangloss/vim-javascript'                            " Better support for JavaScript syntax
+Plug 'juvenn/mustache.vim'                                " Mustache syntax support
+Plug 'tpope/vim-haml'                                     " Support for Haml, Sass, & SCSS
+Plug 'vim-ruby/vim-ruby'                                  " Better support for Ruby
+" Plug 'tpope/vim-rails'                                  " Support for Rails applications
 
 " Tmux
-Bundle 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Themes
-" Plugin 'NLKNguyen/papercolor-theme'
+Plug 'jlong/luscious.vim'
+" Plug 'NLKNguyen/papercolor-theme'
 
 " Misc plugins
-Plugin 'tpope/vim-git'                                      " Basic git support
-Plugin 'tpope/vim-fugitive'                                 " Tim Pope's amazing git plugin
-Plugin 'bronson/vim-trailing-whitespace'                    " Whitespace plugin
-Plugin 'guns/xterm-color-table.vim'                         " Show color table for adjusting Vim themes
+Plug 'tpope/vim-git'                                      " Basic git support
+Plug 'tpope/vim-fugitive'                                 " Tim Pope's amazing git plugin
+Plug 'bronson/vim-trailing-whitespace'                    " Whitespace plugin
+" Plug 'guns/xterm-color-table.vim'                       " Show color table for adjusting Vim themes
 
-" runtime ftplugin/man.vim                                    " :Man plugin
+" runtime ftplugin/man.vim                                " :Man plugin
 
-call vundle#end()
+call plug#end()
 
 
 " ====================
@@ -223,6 +220,7 @@ function! WipeoutInactiveBuffers()
 endfunction
 command Wipeout call WipeoutInactiveBuffers()
 
+" Project-wide search with Git
 func GitGrep(...)
   let save = &grepprg
   set grepprg=git\ grep\ -n\ $*
@@ -235,6 +233,18 @@ func GitGrep(...)
 endfun
 command -nargs=? G silent call GitGrep(<f-args>) | cw | redraw!
 
+" Visual Mode searching
+xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
+
+function! s:VSetSearch(cmdtype)
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+  let @s = temp
+endfunction
+
+
 " ==================
 " Mappings
 " ==================
@@ -243,7 +253,7 @@ let mapleader = ","                                        " A way to make comma
 imap ;; <Esc>
 
 " Paste linewise after with indent
-nnoremap <leader>p :put *<cr>`[v`]=
+" nnoremap <leader>p :put *<cr>`[v`]=
 
 " move between windows
 " nnoremap <c-j> <c-w>j
@@ -312,12 +322,12 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 " NERDtree
-let NERDTreeWinSize=31
-let NERDTreeMinimalUI=1
-let NERDTreeDirArrows=1
-let NERDTreeHijackNetrw=0
-let NERDTreeIgnore=['tmp$[[dir]]', 'build$[[dir]]']
-map <leader>nt :NERDTree<space>
-map <leader>nb :NERDTreeFromBookmark<space>
-map <leader>d :NERDTreeToggle
-map <leader>R :NERDTreeFind<CR>
+" let NERDTreeWinSize=31
+" let NERDTreeMinimalUI=1
+" let NERDTreeDirArrows=1
+" let NERDTreeHijackNetrw=0
+" let NERDTreeIgnore=['tmp$[[dir]]', 'build$[[dir]]']
+" map <leader>nt :NERDTree<space>
+" map <leader>nb :NERDTreeFromBookmark<space>
+" map <leader>d :NERDTreeToggle
+" map <leader>R :NERDTreeFind<CR>
