@@ -1,3 +1,7 @@
+#!/bin/sh
+
+# Script based on: https://coderwall.com/p/pn8f0g/show-your-git-status-and-branch-in-color-at-the-command-prompt
+
 COLOR_RED="\033[0;31m"
 COLOR_YELLOW="\033[0;33m"
 COLOR_GREEN="\033[0;32m"
@@ -44,6 +48,6 @@ function git_branch {
 PS1="\[$COLOR_WHITE\]\u@\h:\w"  # basename of pwd
 PS1+="\[\$(git_color)\]"        # colors git status
 PS1+="\$(git_branch)"           # prints current branch
-PS1+="\[$COLOR_RESET\] "       # $
+PS1+="\[$COLOR_RESET\] "        # reset color
 
 export PS1
