@@ -10,13 +10,13 @@ function git_color {
   local git_status="$(git status 2> /dev/null)"
 
   if [[ ! $git_status =~ "working directory clean" ]]; then
-    echo -e $COLOR_RED
-  elif [[ $git_status =~ "Your branch is ahead of" ]]; then
     echo -e $COLOR_YELLOW
-  elif [[ $git_status =~ "nothing to commit" ]]; then
+  elif [[ $git_status =~ "Your branch is ahead of" ]]; then
     echo -e $COLOR_GREEN
+  elif [[ $git_status =~ "nothing to commit" ]]; then
+    echo -e $COLOR_BLUE
   else
-    echo -e $COLOR_OCHRE
+    echo -e $COLOR_RED
   fi
 }
 
@@ -24,19 +24,26 @@ function git_branch {
   local git_status="$(git status 2> /dev/null)"
   local on_branch="On branch ([^${IFS}]*)"
   local on_commit="HEAD detached at ([^${IFS}]*)"
+  local postfix="@"
+  
+  if [[ ! $git_status =~ "working directory clean" ]]; then
+    postfix="&"
+  fi
 
   if [[ $git_status =~ $on_branch ]]; then
     local branch=${BASH_REMATCH[1]}
-    echo " $branch"
+    echo " $branch$postfix"
   elif [[ $git_status =~ $on_commit ]]; then
     local commit=${BASH_REMATCH[1]}
-    echo " $commit"
+    echo " $commit$postfix"
+  else
+    echo -e "$COLOR_RESET$"
   fi
 }
 
 PS1="\[$COLOR_WHITE\]\u@\h:\w"  # basename of pwd
 PS1+="\[\$(git_color)\]"        # colors git status
 PS1+="\$(git_branch)"           # prints current branch
-PS1+="\[$COLOR_RESET\]$ "       # '#' for root, else '$'
+PS1+="\[$COLOR_RESET\] "       # $
 
 export PS1

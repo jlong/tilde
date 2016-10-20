@@ -1119,9 +1119,9 @@
 	<key>UseBrightBold</key>
 	<true/>
 	<key>name</key>
-	<string>My Theme</string>
+	<string>Sensible</string>
 	<key>shellExitAction</key>
-	<integer>2</integer>
+	<integer>1</integer>
 	<key>type</key>
 	<string>Window Settings</string>
 </dict>
