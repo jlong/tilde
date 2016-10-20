@@ -9,10 +9,10 @@ alias mux=tmuxinator
 alias svim=/usr/bin/vim
 alias profile="vi ~/.bash_profile"
 alias mkpath="mkdir -p"
-alias ss="script/server"
 alias cls=clear
 
 if [[ "$platform" == 'Darwin' ]]; then
+  alias updatedb="sudo /usr/libexec/locate.updatedb"
   alias flushdns="dscacheutil -flushcache"
   alias ls="ls -p -h -G"
 
@@ -27,16 +27,14 @@ if [[ "$platform" == 'Darwin' ]]; then
   alias preview="open -a '/Applications/Preview.app'"
   alias xcode="open -a '/Developer/Applications/Xcode.app'"
   alias coda="open -a '/Applications/Coda.app'"
-  alias tm="mate"
   alias ios-simulator="open -a '/Applications/Xcode.app/Contents/Applications/iPhone Simulator.app'" 
-  alias refresh-dev-box='v destroy -f dev && v up dev && v ssh dev -c "bash -c /vagrant/files/home-dirs/john/bin/setup-dev-box.sh" && v ssh dev'
 
   # Git
   alias git=hub
 
 # Ruby
-  alias stdlib="mate /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/"
-  alias gems="mate /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/"
+  alias stdlib="vi /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/"
+  alias gems="vi /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/"
 else
   alias ls="ls -p -h --color"
 fi

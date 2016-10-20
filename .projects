@@ -47,13 +47,6 @@ wd ()
 }
 complete -W "application prototype mockups artwork website portfolio" wd
 
-# MemberHub
-mh ()
-{
-  project memberhub $1
-}
-complete -W "application prototype mockups artwork wireframes website upload" mh
-
 # Radiant
 ra ()
 {
@@ -67,16 +60,3 @@ ox ()
   project oxygen $1
 }
 complete -W "website" ox
-
-# UserVoice
-uv ()
-{
-  project uservoice $1
-}
-complete -W "application prototype mockups artwork wireframes website deployment" uv
-
-# UserVoice Vagrant
-v ()
-{
-  VAGRANT_CWD=~/Workspaces/uservoice/deployment vagrant $@ 
-}

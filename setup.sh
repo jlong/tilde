@@ -218,6 +218,7 @@ if [ "$bash" = true ]; then
 
   update_profile=true
 
+  ln -sfv $SCRIPTPATH/.prompt $HOME/.prompt
   ln -sfv $SCRIPTPATH/.exports $HOME/.exports
   ln -sfv $SCRIPTPATH/.aliases $HOME/.aliases
   ln -sfv $SCRIPTPATH/.projects $HOME/.projects
@@ -229,6 +230,7 @@ if [ "$update_profile" = true ]; then
   echo ""
 
   if [ "$bash" = true ]; then
+    add_to_profile 'source ~/.prompt'
     add_to_profile 'source ~/.exports'
     add_to_profile 'source ~/.aliases'
     add_to_profile 'source ~/.projects'

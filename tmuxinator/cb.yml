@@ -1,0 +1,20 @@
+name: cb
+root: ~/Workspaces/cloudbees/environment
+
+windows:
+  - bash:
+      layout: even-horizontal
+      panes:
+        - bash:
+          - cls
+        - git:
+          - gitsh
+          - cls
+  - vim: vim
+  - server:
+      layout: even-horizontal
+      panes:
+        - logs:
+          - rake start:cjoc
+          - rake start:cje:all
+          - rake logs

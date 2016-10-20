@@ -1,6 +1,6 @@
 [user]
   name = John W. Long
-  email = john@uservoice.com
+  email = me@johnwlong.com
 [core]
   editor = vim --nofork
   legacyheaders = false
