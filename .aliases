@@ -39,6 +39,8 @@ if [[ "$platform" == 'Darwin' ]]; then
   alias push="git push"
   alias pull="git pull"
   alias up="git pull"
+  alias stash="git stash"
+  alias branch="git branch"
 
 # Ruby
   alias stdlib="vi /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/"
