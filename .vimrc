@@ -6,34 +6,20 @@ set nocompatible                                          " We aren't interested
 
 call plug#begin('~/.vim/plugged')
 
-" Text manipulation and navigation
-" Plug 'goldfeld/vim-seek'                                " Quickly navigate with s and S
-Plug 'gcmt/wildfire.vim'                                  " Smart selection of closest text object with <ENTER>
-
 " IDE-like features
-" Plug 'scrooloose/nerdtree'                              " File tree plugin for Vim
 Plug 'kien/ctrlp.vim'                                     " Easily open files
-" Plug 'rking/ag.vim'                                     " Simple Vim interface to Ag
-" Plug 'bling/vim-airline'                                " Pretty status line
 Plug 'mkitt/tabline.vim'                                  " Easier control of tabline
 Plug 'airblade/vim-gitgutter'                             " Keep track of additions, subtractions, and modifications
 Plug 'vim-scripts/gitignore'                              " Sync wildignore with .gitignore
-" Plug 'tpope/vim-repeat'                                 " Interface for plugins to extend '.'
 Plug 'tpope/vim-commentary'                               " tpope's comment plugin
-" Plug 'tpope/vim-abolish'                                " Abolish
-" Plug 'tpope/vim-surround'                               " Helps manage quotes
-Plug 'tpope/vim-endwise'                                  " Helps to end certain structures automatically
 Plug 'tpope/vim-vinegar'                                  " Salad dressing for netrw
 Plug 'junegunn/goyo.vim'                                  " Distraction-free writing for Vim
-" Plug 'scrooloose/syntastic'                             " Syntax checking
-Plug 'neomake/neomake'
+Plug 'neomake/neomake'                                    " Syntax checking
 
 " Language support
 Plug 'jlong/sass-convert.vim'                             " Easily convert between Sass syntaxes
 Plug 'plasticboy/vim-markdown'                            " Markdown syntax support
 Plug 'pangloss/vim-javascript'                            " Better support for JavaScript syntax
-Plug 'juvenn/mustache.vim'                                " Mustache syntax support
-Plug 'tpope/vim-haml'                                     " Support for Haml, Sass, & SCSS
 Plug 'vim-ruby/vim-ruby'                                  " Better support for Ruby
 " Plug 'tpope/vim-rails'                                  " Support for Rails applications
 
@@ -299,16 +285,6 @@ map <F7> :Note master<CR>
 
 " toggle spelling
 nmap <F8> :set spell!<CR>
-
-" Syntastic
-command! -nargs=* -bar -bang -count=0 -complete=dir E Explore <args> "map E: back to Explore and prevent ambiguity with syntastics :Error
-let g:syntastic_auto_loc_list=2
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"," proprietary attribute \"ui-"," proprietary attribute \"translate"," proprietary attribute \"uv-","<uv-", "trimming empty <"]
-let g:syntastic_enable_signs=1
-let g:syntastic_javascript_checkers = ["jshint"]
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_loc_list_height = 5
 
 " Ctrl-p
 silent! nmap <unique> <silent> <Leader>f :CtrlP<CR>
