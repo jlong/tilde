@@ -41,8 +41,8 @@ Plug 'vim-ruby/vim-ruby'                                  " Better support for R
 Plug 'christoomey/vim-tmux-navigator'
 
 " Themes
+Plug 'jonathanfilip/vim-lucius'
 Plug 'jlong/luscious.vim'
-" Plug 'NLKNguyen/papercolor-theme'
 
 " Misc plugins
 Plug 'tpope/vim-git'                                      " Basic git support
@@ -95,7 +95,7 @@ set linebreak                                              " Wrap on words
 " Syntax highlighting
 syntax enable                                              " Enable syntax higlighting
 set t_Co=256                                               " Turn 256 color support on
-set background=light
+set background=dark
 colorscheme luscious
 
 " User interface
