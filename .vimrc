@@ -15,12 +15,14 @@ Plug 'tpope/vim-commentary'                               " tpope's comment plug
 Plug 'tpope/vim-vinegar'                                  " Salad dressing for netrw
 Plug 'junegunn/goyo.vim'                                  " Distraction-free writing for Vim
 Plug 'neomake/neomake'                                    " Syntax checking
+Plug 'scrooloose/nerdtree'                                " Treeview
 
 " Language support
 Plug 'jlong/sass-convert.vim'                             " Easily convert between Sass syntaxes
 Plug 'plasticboy/vim-markdown'                            " Markdown syntax support
 Plug 'pangloss/vim-javascript'                            " Better support for JavaScript syntax
 Plug 'vim-ruby/vim-ruby'                                  " Better support for Ruby
+Plug 'rhysd/vim-crystal'                                  " Support for Crystal
 " Plug 'tpope/vim-rails'                                  " Support for Rails applications
 
 " Tmux
@@ -102,6 +104,7 @@ set showmatch                                              " Show matching brack
 set nojoinspaces                                           " Don't join lines with 2 spaces after a period
 set scrolloff=2                                            " Scroll up or down with at least 2 lines on either side of the cursor
 set spelllang=en_us                                        " Spelling!
+set nofoldenable                                           " disable folding
 
 
 " Status line
@@ -124,9 +127,9 @@ set mouse=a
 if has("gui_running")
   set guioptions+=TlRLrb
   set guioptions-=TlRLrb
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h14
   set antialias
-  set transparency=8
+  set transparency=2
 endif
 
 " Our whitespace plugin highlights it by default. Let's turn this off for now:
@@ -298,12 +301,12 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 " NERDtree
-" let NERDTreeWinSize=31
-" let NERDTreeMinimalUI=1
-" let NERDTreeDirArrows=1
-" let NERDTreeHijackNetrw=0
-" let NERDTreeIgnore=['tmp$[[dir]]', 'build$[[dir]]']
-" map <leader>nt :NERDTree<space>
-" map <leader>nb :NERDTreeFromBookmark<space>
-" map <leader>d :NERDTreeToggle
-" map <leader>R :NERDTreeFind<CR>
+let NERDTreeWinSize=31
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+let NERDTreeHijackNetrw=0
+let NERDTreeIgnore=['tmp$[[dir]]', 'build$[[dir]]']
+map <leader>nt :NERDTree<space>
+map <leader>nb :NERDTreeFromBookmark<space>
+map <leader>d :NERDTreeToggle
+map <leader>R :NERDTreeFind<CR>

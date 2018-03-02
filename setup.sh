@@ -222,6 +222,7 @@ if [ "$bash" = true ]; then
   ln -sfv $SCRIPTPATH/.exports $HOME/.exports
   ln -sfv $SCRIPTPATH/.aliases $HOME/.aliases
   ln -sfv $SCRIPTPATH/.projects $HOME/.projects
+  ln -sfv $SCRIPTPATH/.brew-completion $HOME/.brew-completion
 fi
 
 if [ "$update_profile" = true ]; then
@@ -248,6 +249,8 @@ if [ "$update_profile" = true ]; then
   if [ "$rake" = true ]; then
     add_to_profile 'complete -C path/to/tilde/lib/rake-complete.rb -o default rake'
   fi
+
+  add_to_profile 'source ~/.brew-completion'
 fi
 
 echo ""

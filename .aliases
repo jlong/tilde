@@ -28,19 +28,24 @@ if [[ "$platform" == 'Darwin' ]]; then
   alias xcode="open -a '/Developer/Applications/Xcode.app'"
   alias coda="open -a '/Applications/Coda.app'"
   alias ios-simulator="open -a '/Applications/Xcode.app/Contents/Applications/iPhone Simulator.app'" 
+  alias sublime="open -a '/Applications/Sublime Text.app'" 
+  alias macvim="open -a '/Applications/MacVim.app'" 
 
   # Git
   alias git=hub
   alias add="git add"
-  alias ci="git commit"
   alias commit="git commit"
-  alias st="git status"
+  alias ci="git commit"
   alias status="git status"
+  alias st="git status"
   alias push="git push"
   alias pull="git pull"
   alias up="git pull"
   alias stash="git stash"
   alias branch="git branch"
+  alias clone="git clone"
+  alias checkout="git checkout"
+  alias co="git checkout"
 
 # Ruby
   alias stdlib="vi /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/"
@@ -63,3 +68,10 @@ alias be="bundle exec"
 
 # Work log
 alias lw="logwork"
+
+# Jenkins
+alias cjoc="java -jar ~/bin/jenkins-cli.jar -s http://127.0.0.1:3000/ -i ~/.ssh/local-cjp/id_rsa"
+alias cje-a="java -jar ~/bin/jenkins-cli.jar -s http://127.0.0.1:3001/ -i ~/.ssh/local-cjp/id_rsa"
+alias cje-b="java -jar ~/bin/jenkins-cli.jar -s http://127.0.0.1:3002/ -i ~/.ssh/local-cjp/id_rsa"
+alias cje-c="java -jar ~/bin/jenkins-cli.jar -s http://127.0.0.1:3003/ -i ~/.ssh/local-cjp/id_rsa"
+alias cje-d="java -jar ~/bin/jenkins-cli.jar -s http://127.0.0.1:3004/ -i ~/.ssh/local-cjp/id_rsa"

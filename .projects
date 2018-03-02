@@ -60,3 +60,10 @@ ox ()
   project oxygen $1
 }
 complete -W "website" ox
+
+# cb
+cb ()
+{
+  project cloudbees $1
+}
+complete -W "environment" cb

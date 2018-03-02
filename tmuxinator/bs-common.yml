@@ -1,5 +1,5 @@
-name: cb
-root: ~/Workspaces/cloudbees/environment
+name: bs-common
+root: ~/Workspaces/cloudbees/bluesteel-poc/bluesteel-common
 
 windows:
   - bash:
@@ -14,6 +14,7 @@ windows:
   - server:
       layout: even-horizontal
       panes:
-        - logs:
-          - rake start:cjp
-          - rake logs
+        - build:
+          - npm run bundle:watch
+        - storybook:
+          - npm start
