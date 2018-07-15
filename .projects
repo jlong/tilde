@@ -40,30 +40,42 @@ project ()
 alias pr=project
 alias ws="cd ~/Workspaces; ls"
 
+getProjectDirs()
+{
+  for i in $(ls -d ~/Workspaces/$1/*/); do echo ${i} | ruby -pe 'sub(%r{/(.*)/(.+?)//$}, "\\2")'; done | tr '\n' ' '
+}
+
 # Wiseheart Design
 wd ()
 {
   project wiseheartdesign $1
 }
-complete -W "application prototype mockups artwork website portfolio" wd
+complete -W "$(getProjectDirs wiseheartdesign)" wd
 
 # Radiant
 ra ()
 {
   project radiant $1
 }
-complete -W "application instance registry prototype mockups artwork website" ra
+complete -W "$(getProjectDirs radiant)" ra
 
 # Oxygen
 ox ()
 {
   project oxygen $1
 }
-complete -W "website" ox
+complete -W "$(getProjectDirs oxygen)" ox
 
 # cb
 cb ()
 {
   project cloudbees $1
 }
-complete -W "environment" cb
+complete -W "$(getProjectDirs cloudbees)" cb
+
+# cdx
+cdx ()
+{
+  project cdx $1
+}
+complete -W "$(getProjectDirs cdx)" cdx
