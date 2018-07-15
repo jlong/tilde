@@ -42,7 +42,7 @@
   vim = "!f() { git st -s | awk '{ print $2 }' | xargs vi -p; }; f"
   changelog = log --no-merges --date=short --pretty=format:'%Cgreen%cd%Creset %Cred%h%Creset -%C(yellow)%d%Creset %cN: %s'
   mine = log --author=john
-  delete = "!f() { git branch -d $1 && git push origin :$1; }; f"
+  delete-branch = "!f() { git branch -d $1 && git push origin :$1; }; f"
   ls = !ls -G
   push-upstream = "!f() { branch=$(git st | head -1 | awk '{ print $3 }'); git push --set-upstream origin $branch; }; f"
   cls = !clear
