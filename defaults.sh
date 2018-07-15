@@ -27,4 +27,4 @@ defaults write com.apple.Safari NSQuitAlwaysKeepsWindows 0
 killall Safari
 
 # Make Library visible
-/Developer/Tools/SetFile -a v ~/Library/
+chflags nohidden ~/Library/
