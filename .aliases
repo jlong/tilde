@@ -68,6 +68,7 @@ alias be="bundle exec"
 
 # Work log
 alias lw="logwork"
+alias did="vim +'normal Go' +'r!date' ~/did.txt"
 
 # Jenkins
 alias cjoc="java -jar ~/bin/jenkins-cli.jar -s http://127.0.0.1:3000/ -i ~/.ssh/local-cjp/id_rsa"

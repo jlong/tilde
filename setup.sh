@@ -30,6 +30,7 @@ Components:
   rake     Rake completion
   jshint   JSHint config
   bash     Bash extras
+  bin      Bin files
 
 "
 case $# in 0) echo "$HELP"; exit 0;; esac
@@ -54,6 +55,7 @@ do
       rake=true;
       jshint=true;
       bash=true;
+      bin=true;
       ;;
 
     +vim) vim=true;;
@@ -82,6 +84,9 @@ do
 
     +bash) bash=true;;
     -bash) bash=false;;
+
+    +bin) bin=true;;
+    -bin) bin=true;;
 
     help) echo "$HELP"; exit 0 ;;
 
@@ -223,6 +228,14 @@ if [ "$bash" = true ]; then
   ln -sfv $SCRIPTPATH/.aliases $HOME/.aliases
   ln -sfv $SCRIPTPATH/.projects $HOME/.projects
   ln -sfv $SCRIPTPATH/.brew-completion $HOME/.brew-completion
+fi
+
+if [ "$bin" = true ]; then
+  #######################
+  echo "Bin files"
+  #######################
+
+  ln -sfv $SCRIPTPATH/bin $HOME
 fi
 
 if [ "$update_profile" = true ]; then
