@@ -123,11 +123,6 @@ if [ "$vim" = true ]; then
   ln -sfv $SCRIPTPATH/.gvimrc $HOME/.gvimrc
   mkdir $SCRIPTPATH/.vim-tmp
 
-  # Pull in our .vim/bundles
-  cd $SCRIPTPATH
-  git submodule update --init
-  cd -
-
   # Install plugins
   vim +PluginInstall +qall
 
