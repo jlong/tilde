@@ -1,0 +1,7 @@
+name: zest-website
+root: ~/Workspaces/zest-website
+
+windows:
+  - bash: cls
+  - vim: vim
+  - server: npm start

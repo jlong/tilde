@@ -5,6 +5,7 @@
   editor = vim --nofork
   legacyheaders = false
   excludesfile = /Users/jlong/.gitignore
+	ignorecase = false
 [push]
   default = tracking
 [pull]

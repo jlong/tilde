@@ -21,6 +21,7 @@ Plug 'scrooloose/nerdtree'                                " Treeview
 Plug 'jlong/sass-convert.vim'                             " Easily convert between Sass syntaxes
 Plug 'plasticboy/vim-markdown'                            " Markdown syntax support
 Plug 'pangloss/vim-javascript'                            " Better support for JavaScript syntax
+Plug 'mxw/vim-jsx'                                        " JSX support
 Plug 'vim-ruby/vim-ruby'                                  " Better support for Ruby
 Plug 'rhysd/vim-crystal'                                  " Support for Crystal
 " Plug 'tpope/vim-rails'                                  " Support for Rails applications
