@@ -10,7 +10,6 @@ project ()
   then
     if [ $2 ]; then
       cd ~/Workspaces/$1/trunk/$2
-    else
       if [[ -e ~/Workspaces/$1/trunk/$1 ]]; then
         cd ~/Workspaces/$1/trunk/$1
       else
@@ -50,32 +49,18 @@ wd ()
 {
   project wiseheartdesign $1
 }
-complete -W "$(getProjectDirs wiseheartdesign)" wd
+#complete -W "$(getProjectDirs wiseheartdesign)" wd
 
 # Radiant
 ra ()
 {
   project radiant $1
 }
-complete -W "$(getProjectDirs radiant)" ra
+#complete -W "$(getProjectDirs radiant)" ra
 
 # Oxygen
 ox ()
 {
   project oxygen $1
 }
-complete -W "$(getProjectDirs oxygen)" ox
-
-# cb
-cb ()
-{
-  project cloudbees $1
-}
-complete -W "$(getProjectDirs cloudbees)" cb
-
-# cdx
-cdx ()
-{
-  project cdx $1
-}
-complete -W "$(getProjectDirs cdx)" cdx
+#complete -W "$(getProjectDirs oxygen)" ox
