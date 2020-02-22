@@ -118,7 +118,7 @@ if [ "$vim" = true ]; then
   #######################
   echo "VIM"
 
-  ln -sv $SCRIPTPATH/vim/ $HOME/.vim
+  ln -sv $SCRIPTPATH/.vim/ $HOME/.vim
   ln -sfv $SCRIPTPATH/.vimrc $HOME/.vimrc
   ln -sfv $SCRIPTPATH/.gvimrc $HOME/.gvimrc
   mkdir $SCRIPTPATH/.vim-tmp
