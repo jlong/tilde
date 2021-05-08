@@ -124,7 +124,7 @@ if [ "$vim" = true ]; then
   mkdir $SCRIPTPATH/.vim-tmp
 
   # Install plugins
-  vim +PluginInstall +qall
+  vim +PlugInstall +qall
 
   echo ""
 fi
