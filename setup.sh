@@ -3,6 +3,8 @@
 SCRIPT=$(cd `dirname "${BASH_SOURCE[0]}"` && pwd)/`basename "${BASH_SOURCE[0]}"`
 SCRIPTPATH=`dirname $SCRIPT`
 PROFILE=$HOME/.bashrc
+OHMYZSH=$HOME/.oh-my-zsh
+ZSHRC=$HOME/.zshrc
 
 HELP="
 Usage:
@@ -30,6 +32,7 @@ Components:
   rake     Rake completion
   jshint   JSHint config
   bash     Bash extras
+  zsh      Zshell extras
   bin      Bin files
 
 "
@@ -56,6 +59,7 @@ do
       jshint=true;
       bash=true;
       bin=true;
+      zsh=true;
       ;;
 
     +vim) vim=true;;
@@ -84,6 +88,9 @@ do
 
     +bash) bash=true;;
     -bash) bash=false;;
+
+    +zsh) zsh=true;;
+    -zsh) zsh=false;;
 
     +bin) bin=true;;
     -bin) bin=true;;
@@ -213,7 +220,7 @@ add_to_profile() {
 
 if [ "$bash" = true ]; then
   #######################
-  echo "Bash Profile"
+  echo "Bash Extras"
   #######################
 
   update_profile=true
@@ -223,6 +230,32 @@ if [ "$bash" = true ]; then
   ln -sfv $SCRIPTPATH/.aliases $HOME/.aliases
   ln -sfv $SCRIPTPATH/.projects $HOME/.projects
   ln -sfv $SCRIPTPATH/.brew-completion $HOME/.brew-completion
+  
+  echo ""
+fi
+
+add_to_zshrc() {
+  local line=$1
+  touch $ZSHRC
+  if ! grep -q "$line" $ZSHRC; then
+    echo "  $line"
+    eval $(echo "$line" | tee -a $ZSHRC)
+  fi
+}
+
+if [ "$zsh" = true ]; then
+  #######################
+  echo "Zshell Extras"
+  #######################
+
+  update_zshrc=true
+
+  if [[ ! -d "$OHMYZSH" ]]; then
+    echo "Installing Oh My Zsh..."
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  fi
+
+  echo ""
 fi
 
 if [ "$bin" = true ]; then
@@ -259,6 +292,17 @@ if [ "$update_profile" = true ]; then
   fi
 
   add_to_profile 'source ~/.brew-completion'
+fi
+
+if [ "$update_zshrc" = true ]; then
+  echo ""
+  echo "Adding the following lines to your zshrc ($ZSHRC):"
+  echo ""
+
+  if [ "$zsh" = true ]; then
+    add_to_zshrc 'source ~/.aliases'
+    add_to_zshrc 'source ~/.projects'
+  fi
 fi
 
 echo ""

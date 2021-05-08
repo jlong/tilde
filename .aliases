@@ -32,7 +32,7 @@ if [[ "$platform" == 'Darwin' ]]; then
   alias macvim="open -a '/Applications/MacVim.app'" 
 
   # Git
-  alias git=hub
+  # alias git=hub
   alias add="git add"
   alias commit="git commit"
   alias ci="git commit"
