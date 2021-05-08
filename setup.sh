@@ -25,6 +25,7 @@ Components:
 
   vim      Vim config and plugins
   git      Git config
+  brew     Homebrew
   screen   Screen config
   tmux     Tmux and Tmuxinator config
   ack      Ack config
@@ -51,6 +52,7 @@ do
     all)
       vim=true;
       git=true;
+      brew=true;
       screen=true;
       tmux=true;
       ack=true;
@@ -67,6 +69,9 @@ do
 
     +git) git=true;;
     -git) git=false;;
+
+    +brew) brew=true;;
+    -brew) brew=false;;
 
     +screen) screen=true;;
     -screen) screen=false;;
@@ -104,7 +109,7 @@ done
 
 if [ "$git" = true ]; then
   #######################
-  echo "GIT"
+  echo "Git"
   #######################
 
   update_profile=true
@@ -121,9 +126,21 @@ if [ "$git" = true ]; then
   echo ""
 fi
 
+if [ "$brew" = true ]; then
+  #######################
+  echo "Homebrew"
+  #######################
+
+  if [[ ! -d /opt/homebrew/Cellar ]] && [[ ! -d /usr/local/Cellar ]]; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+  fi
+
+  echo ""
+fi
+
 if [ "$vim" = true ]; then
   #######################
-  echo "VIM"
+  echo "Vim"
 
   ln -sv $SCRIPTPATH/.vim/ $HOME/.vim
   ln -sfv $SCRIPTPATH/.vimrc $HOME/.vimrc
