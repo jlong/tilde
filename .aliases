@@ -17,8 +17,8 @@ if [[ "$platform" == 'Darwin' ]]; then
   alias ls="ls -p -h -G"
 
   # PostgreSQL
-  alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-  alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+  alias pgstart="pg_ctl -D /opt/homebrew/var/postgres -l /opt/homebrew/var/postgres/server.log start"
+  alias pgstop="pg_ctl -D /opt/homebrew/var/postgres stop -s -m fast"
 
   # Desktop Programs
   alias fireworks="open -a '/Applications/Adobe Fireworks CS6/Adobe Fireworks CS6.app'"

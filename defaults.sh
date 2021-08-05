@@ -8,5 +8,7 @@ defaults write com.apple.Safari NSQuitAlwaysKeepsWindows 0
 
 killall Safari
 
+defaults write com.google.Chrome.plist AppleEnableSwipeNavigateWithScrolls -bool FALSE
+
 # Make Library visible
 chflags nohidden ~/Library/
