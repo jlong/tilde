@@ -1,0 +1,10 @@
+# /Users/jlong/.tmuxinator/taskpage.yml
+
+name: taskpage
+root: ~/Workspaces/taskpage
+
+
+windows:
+  - zsh: zsh
+  - vim: vim
+  - server: zsh

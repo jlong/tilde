@@ -1,6 +1,2 @@
 export EDITOR=vi
-export UV_RAILS_DIR=/Users/jlong/Workspaces/uservoice/application
-export UV_METROID_DIR=/Users/jlong/Workspaces/uservoice/metroid
-export UV_SAMUS_DIR=/Users/jlong/Workspaces/uservoice/samus
-export UV_SILLYPUTTY_DIR=/Users/jlong/Workspaces/uservoice/sillyputty
 export TZ=America/New_York

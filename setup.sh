@@ -170,8 +170,8 @@ if [ "$tmux" = true ]; then
 
   update_profile=true
 
+  brew install tmuxinator
   brew install reattach-to-user-namespace
-  gem install tmuxinator
 
   ln -sfv $SCRIPTPATH/.tmux.conf $HOME/.tmux.conf
   ln -sv $SCRIPTPATH/tmuxinator $HOME/.tmuxinator
