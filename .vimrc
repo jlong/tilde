@@ -14,17 +14,11 @@ Plug 'vim-scripts/gitignore'                              " Sync wildignore with
 Plug 'tpope/vim-commentary'                               " tpope's comment plugin
 Plug 'tpope/vim-vinegar'                                  " Salad dressing for netrw
 Plug 'junegunn/goyo.vim'                                  " Distraction-free writing for Vim
-Plug 'neomake/neomake'                                    " Syntax checking
 Plug 'scrooloose/nerdtree'                                " Treeview
+Plug 'neoclide/coc.nvim', {'branch': 'release'}           " VSCode-style code completion and syntax highlighting
 
-" Language support
+" Language features
 Plug 'jlong/sass-convert.vim'                             " Easily convert between Sass syntaxes
-Plug 'plasticboy/vim-markdown'                            " Markdown syntax support
-Plug 'pangloss/vim-javascript'                            " Better support for JavaScript syntax
-Plug 'mxw/vim-jsx'                                        " JSX support
-Plug 'vim-ruby/vim-ruby'                                  " Better support for Ruby
-Plug 'rhysd/vim-crystal'                                  " Support for Crystal
-" Plug 'tpope/vim-rails'                                  " Support for Rails applications
 
 " Tmux
 Plug 'christoomey/vim-tmux-navigator'
