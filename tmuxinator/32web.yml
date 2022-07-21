@@ -1,5 +1,5 @@
-name: px
-root: ~/Workspaces/32pixels
+name: 32pxweb
+root: ~/Workspaces/32pixels/website
 
 windows:
   - bash:

@@ -15,7 +15,9 @@ Plug 'tpope/vim-commentary'                               " tpope's comment plug
 Plug 'tpope/vim-vinegar'                                  " Salad dressing for netrw
 Plug 'junegunn/goyo.vim'                                  " Distraction-free writing for Vim
 Plug 'scrooloose/nerdtree'                                " Treeview
-Plug 'neoclide/coc.nvim', {'branch': 'release'}           " VSCode-style code completion and syntax highlighting
+Plug 'neoclide/coc.nvim', {'branch': 'release'}           " VSCode-style code completion
+Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'} " Elixir support for neoclide
+Plug 'elixir-editors/vim-elixir'
 
 " Language features
 Plug 'jlong/sass-convert.vim'                             " Easily convert between Sass syntaxes
@@ -66,6 +68,9 @@ set expandtab                                              " Expand tabs to spac
 set shiftwidth=2
 set tabstop=2
 set smarttab
+
+" Don't write eol characters
+set nofixendofline
 
 " Directories
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp        " Backup Dir

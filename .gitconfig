@@ -1,10 +1,10 @@
 [user]
   name = John W. Long
-  email = me@johnwlong.com
+	email = john@unstack.com
 [core]
   editor = vim --nofork
   legacyheaders = false
-  excludesfile = /Users/jlong/.gitignore
+	excludesfile = /Users/jlong/.gitignore
 	ignorecase = false
 [push]
   default = tracking
@@ -14,9 +14,10 @@
   summary = true
   tool = opendiff
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 [repack]
   usedeltabaseoffset = true
 [apply]
@@ -54,3 +55,9 @@
 [pager]
 	branch = false
 	diff = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Users/jlong/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
