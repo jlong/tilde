@@ -133,7 +133,7 @@ if has("gui_running")
 endif
 
 " Our whitespace plugin highlights it by default. Let's turn this off for now:
-autocmd BufRead * highlight ExtraWhitespace ctermbg=bg guibg=bg
+" autocmd BufRead * highlight ExtraWhitespace ctermbg=bg guibg=bg
 
 " Expand all folds
 autocmd BufRead * call feedkeys("zR")

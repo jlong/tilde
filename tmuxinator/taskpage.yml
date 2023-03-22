@@ -3,8 +3,8 @@
 name: taskpage
 root: ~/Workspaces/32pixels/taskpage
 
-
 windows:
   - zsh: clear
   - vim: vim
-  - server: mix phx.server
+  - server: npm run dev
+  - storybook: npm run storybook
