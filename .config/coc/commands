@@ -1,0 +1,5 @@
+tsserver.restart
+tsserver.goToProjectConfig
+tsserver.restart
+tsserver.reloadProjects
+tsserver.reloadProjects

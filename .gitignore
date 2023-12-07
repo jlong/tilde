@@ -26,3 +26,5 @@ xcuserdata
 .vim/bundle/*
 .vim/plugged/*
 .vim/.undo/*
+
+.config/coc/extensions/node_modules/*
