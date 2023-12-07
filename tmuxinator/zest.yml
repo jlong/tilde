@@ -1,5 +1,5 @@
 name: zest
-root: ~/Workspaces/zest-icons
+root: ~/Workspaces/32pixels/zest-icons
 
 windows:
   - bash:

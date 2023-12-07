@@ -16,11 +16,12 @@ Plug 'tpope/vim-vinegar'                                  " Salad dressing for n
 Plug 'junegunn/goyo.vim'                                  " Distraction-free writing for Vim
 Plug 'scrooloose/nerdtree'                                " Treeview
 Plug 'neoclide/coc.nvim', {'branch': 'release'}           " VSCode-style code completion
-Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'} " Elixir support for neoclide
-Plug 'elixir-editors/vim-elixir'
 
-" Language features
-Plug 'jlong/sass-convert.vim'                             " Easily convert between Sass syntaxes
+" Syntax
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'jxnblk/vim-mdx-js'
 
 " Tmux
 Plug 'christoomey/vim-tmux-navigator'
@@ -30,6 +31,7 @@ Plug 'jonathanfilip/vim-lucius'
 Plug 'jlong/luscious.vim'
 
 " Misc plugins
+Plug 'jlong/sass-convert.vim'                             " Easily convert between Sass syntaxes
 Plug 'tpope/vim-git'                                      " Basic git support
 Plug 'tpope/vim-fugitive'                                 " Tim Pope's amazing git plugin
 Plug 'bronson/vim-trailing-whitespace'                    " Whitespace plugin
@@ -155,6 +157,34 @@ if &term =~ "xterm.*"
 endif
 
 
+" ====================
+" Coc
+" ====================
+
+let g:coc_global_extensions = ['coc-tsserver']
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
+
+function! ShowDocIfNoDiagnostic(timer_id)
+  if (coc#float#has_float() == 0 && CocHasProvider('hover') == 1)
+    silent call CocActionAsync('doHover')
+  endif
+endfunction
+
+function! s:show_hover_doc()
+  call timer_start(200, 'ShowDocIfNoDiagnostic')
+endfunction
+
+autocmd CursorHoldI * :call <SID>show_hover_doc()
+autocmd CursorHold * :call <SID>show_hover_doc()
+
+
 " ==================
 " Buffers
 " ==================
@@ -240,6 +270,9 @@ endfunction
 
 let mapleader = ","                                        " A way to make command mapping shorter; see <leader> throughout this
 imap ;; <Esc>
+
+" Completion
+inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
 
 " Paste linewise after with indent
 " nnoremap <leader>p :put *<cr>`[v`]=

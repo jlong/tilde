@@ -1,0 +1,7 @@
+name: oxygen
+root: ~/Workspaces/oxygen
+
+windows:
+  - zsh: clear
+  - vim: vim
+  - server: npm run dev

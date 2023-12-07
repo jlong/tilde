@@ -4,7 +4,8 @@ platform=`uname`
 alias tilde="cd ~/Workspaces/tilde"
 
 # Console
-alias vi=vim
+alias vi=nvim
+alias vim=nvim
 alias mux=tmuxinator
 alias svim=/usr/bin/vim
 alias profile="vi ~/.bash_profile"

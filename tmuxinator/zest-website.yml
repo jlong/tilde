@@ -1,7 +1,7 @@
 name: zest-website
-root: ~/Workspaces/zest-website
+root: ~/Workspaces/32pixels/zest-website
 
 windows:
   - bash: cls
   - vim: vim
-  - server: npm start
+  - server: npm run dev
