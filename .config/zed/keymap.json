@@ -1,0 +1,66 @@
+[
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      // put key-bindings here if you want them to work in normal & visual mode
+
+      "-": "project_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "escape": "project_panel::ToggleFocus",
+
+      "enter": "project_panel::Open",
+
+      "d": "project_panel::NewDirectory",
+      "%": "project_panel::NewFile",
+
+      "shift-r": "project_panel::Rename",
+
+      // These operate differently (which is fine) than in vim in that "marking"
+      // the "target" always comes last. So you would do "m m" to mark the file
+      // you want to move, then "m t" again to mark the target directory.
+      // Copying is the same, with "m c" to mark the file to copy, then "m t"
+      // to mark the target directory.
+      "m m": "project_panel::Cut",
+      "m c": "project_panel::Copy",
+      "m t": "project_panel::Paste",
+
+      // Directory expansion
+      "l": "project_panel::ExpandSelectedEntry",
+      "h": "project_panel::CollapseSelectedEntry",
+
+      // // Move up and down
+      "j": "menu::SelectNext",
+      "k": "menu::SelectPrevious",
+
+      //////////////////////////////////////////////////////////
+      // COMMANDS THAT ARE IN ZED, BUT DON'T WORK JUST RIGHT
+      //////////////////////////////////////////////////////////
+
+      // After deletion of the last file in a directory we should stay inside
+      // the current directory, but instead it jumps to the root of the project.
+      "shift-d": "project_panel::Delete",
+
+      // Works when the current selection in the project panel is a directory.
+      // I think this should also work when the current selection is a file
+      // on whichever directory that file is in.
+      "/": "project_panel::NewSearchInDirectory",
+
+      //////////////////////////////////////////////////////////
+      // COMMANDS THAT ARE NOT IN ZED, BUT WISH THEY WERE
+      //////////////////////////////////////////////////////////
+
+      // Typically this is used to go up a directory. There is no command to
+      // go up a directory in Zed though.
+      "-": "project_panel::SelectPrevDirectory", //project_panel::GoUpOneDirectory",
+
+      // This is not a thing in Zed at the moment. If it was it would display
+      // the file preview in the current pane, but would keep the focus on the
+      // project panel. Moving off that previewed file would close the preview.
+      "p": "pane::TogglePreviewTab"
+    }
+  }
+]

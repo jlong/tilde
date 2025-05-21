@@ -1,6 +1,6 @@
 [user]
-  name = John W. Long
-	email = john@unstack.com
+	name = John W. Long
+	email = john@32pixels.co
 [core]
   editor = vim --nofork
   legacyheaders = false
