@@ -23,18 +23,19 @@ Options:
 Components:
   Specific components can be turned on or off with a +/- prefix.
 
-  vim      Vim config and plugins
-  git      Git config
+  ack      Ack config
+  bash     Bash extras
   brew     Homebrew
+  bin      Bin files
+  git      Git config
+  irb      IRB completion and other goodies
+  jshint   JSHint config
+  node     Install the latest node
+  rake     Rake completion
   screen   Screen config
   tmux     Tmux and Tmuxinator config
-  ack      Ack config
-  irb      IRB completion and other goodies
-  rake     Rake completion
-  jshint   JSHint config
-  bash     Bash extras
+  vim      Vim config and plugins
   zsh      Zshell extras
-  bin      Bin files
 
 "
 case $# in 0) echo "$HELP"; exit 0;; esac
@@ -50,28 +51,44 @@ do
       ;;
 
     all)
-      vim=true;
-      git=true;
-      brew=true;
-      screen=true;
-      tmux=true;
       ack=true;
-      irb=true;
-      rake=true;
-      jshint=true;
       bash=true;
       bin=true;
+      brew=true;
+      git=true;
+      irb=true;
+      jshint=true;
+      node=true;
+      rake=true;
+      screen=true;
+      tmux=true;
+      vim=true;
       zsh=true;
       ;;
 
-    +vim) vim=true;;
-    -vim) vim=false;;
+    +ack) ack=true;;
+    -ack) ack=false;;
+
+    +bash) bash=true;;
+    -bash) bash=false;;
+
+    +brew) brew=true;;
+    -brew) brew=false;;
 
     +git) git=true;;
     -git) git=false;;
 
-    +brew) brew=true;;
-    -brew) brew=false;;
+    +irb) irb=true;;
+    -irb) irb=false;;
+
+    +jshint) jshint=true;;
+    -jshint) jshint=false;;
+
+    +node) node=true;;
+    -node) node=false;;
+
+    +rake) rake=true;;
+    -rake) rake=false;;
 
     +screen) screen=true;;
     -screen) screen=false;;
@@ -79,20 +96,8 @@ do
     +tmux) tmux=true;;
     -tmux) tmux=false;;
 
-    +ack) ack=true;;
-    -ack) ack=false;;
-
-    +irb) irb=true;;
-    -irb) irb=false;;
-
-    +rake) rake=true;;
-    -rake) rake=false;;
-
-    +jshint) jshint=true;;
-    -jshint) jshint=false;;
-
-    +bash) bash=true;;
-    -bash) bash=false;;
+    +vim) vim=true;;
+    -vim) vim=false;;
 
     +zsh) zsh=true;;
     -zsh) zsh=false;;
@@ -136,6 +141,14 @@ if [ "$brew" = true ]; then
   fi
 
   echo ""
+fi
+
+if [ "$node" = true ]; then
+  #######################
+  echo "Node"
+  #######################
+
+  brew install node
 fi
 
 if [ "$vim" = true ]; then
