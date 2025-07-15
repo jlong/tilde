@@ -148,7 +148,9 @@ if [ "$node" = true ]; then
   echo "Node"
   #######################
 
-  brew install node
+  if [[ ! -f /opt/homebrew/bin/node ]]; then
+    brew install node
+  fi
 fi
 
 if [ "$vim" = true ]; then
