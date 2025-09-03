@@ -24,6 +24,7 @@ Components:
   Specific components can be turned on or off with a +/- prefix.
 
   ack      Ack config
+  agentos  Agent OS
   bash     Bash extras
   brew     Homebrew
   bin      Bin files
@@ -64,6 +65,7 @@ do
       tmux=true;
       vim=true;
       zsh=true;
+      agentOS=true;
       ;;
 
     +ack) ack=true;;
@@ -104,6 +106,9 @@ do
 
     +bin) bin=true;;
     -bin) bin=true;;
+
+    +agentos) agentOS=true;;
+    -agentos) agentOS=true;;
 
     help) echo "$HELP"; exit 0 ;;
 
@@ -338,3 +343,14 @@ if [ "$update_zshrc" = true ]; then
 fi
 
 echo ""
+
+
+if [ "$agentOS" = true ]; then
+  #######################
+  echo "Agent OS"
+  #######################
+
+  ln -sfv $SCRIPTPATH/.agent-os $HOME
+
+  echo ""
+fi
