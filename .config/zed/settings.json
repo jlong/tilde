@@ -7,6 +7,13 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "agent_servers": {
+    "your_agent": {
+      "command": "path_to_executable",
+      "args": [],
+      "env": {}
+    }
+  },
   "icon_theme": "JetBrains Icons Dark",
   "tab_bar": {
     "show": false,
@@ -21,7 +28,7 @@
       "model": "gpt-4o"
     }
   },
-  "theme": "One Dark Pro",
+  "theme": "Min Dark (Solid)",
   "telemetry": {
     "diagnostics": false,
     "metrics": false
