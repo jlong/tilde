@@ -1,0 +1,10 @@
+# /Users/jlong/.tmuxinator/grips.yml
+
+name: grips
+root: ~/Workspaces/Gierd/grips
+
+windows:
+  - zsh: clear
+  - vim: vi
+  - server: bin/dev
+  - claude: claude

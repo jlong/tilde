@@ -1,0 +1,9 @@
+# /Users/jlong/.tmuxinator/skills.yml
+
+name: skills
+root: ~/.claude/skills
+
+windows:
+  - zsh: zsh
+  - vim: vi
+  - claude: claude

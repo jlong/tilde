@@ -27,7 +27,9 @@ xcuserdata
 .vim/plugged/*
 .vim/.undo/*
 
-.config/.zed/conversations/*
-.config/.zed/prompts/*
+.config/zed/conversations/*
+.config/zed/prompts/*
+
+.config/raycast/extensions/*
 
 .config/coc/extensions/node_modules/*
