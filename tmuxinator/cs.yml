@@ -1,0 +1,9 @@
+# /Users/jlong/.tmuxinator/cs.yml
+
+name: cs
+root: ~/Workspaces/32pixels/ContextStore
+
+windows:
+  - zsh: clear
+  - vim: vi
+  - claude: claude

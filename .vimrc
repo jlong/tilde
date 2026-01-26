@@ -46,6 +46,9 @@ call plug#end()
 " General
 " ====================
 
+" Auto-reload file changes from disk
+set autoread
+
 " Keyboard
 set timeoutlen=1000
 set ttimeoutlen=0

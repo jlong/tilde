@@ -9,17 +9,17 @@
 {
   "icon_theme": "JetBrains Icons Dark",
   "tab_bar": {
-    "show": false,
-    "show_nav_history_buttons": true
+    "show": false
   },
   "features": {
     "edit_prediction_provider": "zed"
   },
-  "agent": {
+  "assistant": {
     "default_model": {
       "provider": "openai",
       "model": "gpt-4o"
-    }
+    },
+    "version": "2"
   },
   "theme": "One Dark Pro",
   "telemetry": {
