@@ -1,0 +1,3 @@
+#!/bin/sh
+branch=$(git -C "$1" rev-parse --abbrev-ref HEAD 2>/dev/null)
+[ -n "$branch" ] && printf "#[fg=colour15]git:(#[fg=colour15]%s#[fg=colour15])" "$branch"
