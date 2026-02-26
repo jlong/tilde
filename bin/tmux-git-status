@@ -1,3 +1,17 @@
 #!/bin/sh
 branch=$(git -C "$1" rev-parse --abbrev-ref HEAD 2>/dev/null)
-[ -n "$branch" ] && printf "#[fg=colour15]git:(#[fg=colour15]%s#[fg=colour15])" "$branch"
+if [ -n "$branch" ]; then
+  folder=$(basename "$1")
+  max=30
+  # visible length: folder + " git:(" + branch + ")"
+  total=$(( ${#folder} + 7 + ${#branch} ))
+  if [ $total -gt $max ]; then
+    avail=$(( max - ${#folder} - 7 - 1 ))
+    if [ $avail -gt 0 ]; then
+      branch="…$(printf "%s" "$branch" | tail -c $avail)"
+    else
+      branch="…"
+    fi
+  fi
+  printf "#[fg=colour15]git:(%s)" "$branch"
+fi
