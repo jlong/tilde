@@ -2,6 +2,7 @@ name: 32web
 root: ~/Workspaces/32pixels/website
 
 windows:
-  - shell: zsh
+  - zsh: zsh
   - vim: vim
   - server: npm run dev
+  - claude: claude
