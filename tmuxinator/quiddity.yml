@@ -1,0 +1,9 @@
+# /Users/jlong/.tmuxinator/quiddity.yml
+
+name: quiddity
+root: ~/Workspaces/quiddity
+
+windows:
+  - bash: clear
+  - vim: vim
+  - claude: claude

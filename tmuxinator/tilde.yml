@@ -1,0 +1,9 @@
+# /Users/jlong/.tmuxinator/tilde.yml
+
+name: tilde
+root: ~/Workspaces/tilde
+
+windows:
+  - zsh: cls
+  - vim: vim
+  - claude: claude

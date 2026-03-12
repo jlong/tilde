@@ -1,0 +1,12 @@
+# /Users/jlong/.tmuxinator/radiant.yml
+
+name: radiant
+root: ~/Workspaces/radiant
+pre_window: eval "$(rbenv init -)"
+
+windows:
+  - zsh: clear
+  - vim: vi
+  - server: bin/rails server
+  - claude: claude
+
