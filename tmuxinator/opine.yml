@@ -1,0 +1,9 @@
+name: opine
+root: ~/Workspaces/Opine/platform
+
+windows:
+  - zsh: zsh
+  - vim: vim
+  - claude: claude
+  - server: npm run dev
+  - ingest: npm run dev:ingest

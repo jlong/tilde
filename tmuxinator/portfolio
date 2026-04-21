@@ -1,7 +1,0 @@
-name: portfolio
-root: ~/Workspaces/portfolio
-
-windows:
-  - shell: zsh
-  - vim: vim
-  - server: npm run dev
