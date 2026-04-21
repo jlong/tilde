@@ -1,5 +1,5 @@
-name: 32web
-root: ~/Workspaces/32pixels/website
+name: cs-web
+root: ~/Workspaces/32pixels/contextstore-website
 
 windows:
   - zsh: zsh

@@ -1,0 +1,10 @@
+# /Users/jlong/.tmuxinator/gecko.yml
+
+name: gecko
+root: ~/Workspaces/32pixels/GeckoIssues
+
+
+windows:
+  - zsh: clear
+  - vim: vi
+  - claude: claude

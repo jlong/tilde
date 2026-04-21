@@ -1,8 +1,9 @@
+# /Users/jlong/.tmuxinator/porfolio.yml
+
 name: portfolio
 root: ~/Workspaces/portfolio
 
 windows:
-  - bash: cls
+  - shell: zsh
   - vim: vim
-  - claude: claude
   - server: npm run dev

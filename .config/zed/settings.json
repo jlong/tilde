@@ -28,7 +28,7 @@
       "model": "gpt-4o"
     }
   },
-  "theme": "Min Dark (Solid)",
+  "theme": "Monokai Charcoal",
   "telemetry": {
     "diagnostics": false,
     "metrics": false

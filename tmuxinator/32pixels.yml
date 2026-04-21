@@ -1,0 +1,10 @@
+# /Users/jlong/.tmuxinator/32pixels.yml
+
+name: 32pixels
+root: ~/contextstore-files/32pixels
+
+windows:
+  - zsh: zsh
+  - vim: vim
+  - claude: claude
+
